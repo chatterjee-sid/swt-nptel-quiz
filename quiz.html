@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Testing Quiz</title>
+  <style>
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+      margin: 0 auto; 
+      max-width: 900px;
+      padding: 1em;
+      line-height: 1.6; 
+      background-color: #f9f9f9; 
+    }
+    h1 { 
+      color: #222; 
+      border-bottom: 2px solid #007BFF; 
+      padding-bottom: 10px; 
+    }
+    .question-block { 
+      margin-bottom: 2em; 
+      background-color: #fff; 
+      border: 1px solid #ddd; 
+      padding: 1.5em; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    }
+    .question-block h3 { 
+      margin-top: 0; 
+      color: #0056b3; 
+    }
+    .directions { 
+      background-color: #e6f7ff; 
+      border: 1px solid #b3e0ff; 
+      padding: 0.1em 1.5em; 
+      border-radius: 8px; 
+      margin-bottom: 1em; 
+    }
+    label { 
+      display: block; 
+      margin: 0.75em 0 0.75em 0.5em; 
+      padding: 0.5em; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: background-color 0.2s; 
+    }
+    label:hover { 
+      background-color: #f0f8ff; 
+    }
+    input[type='radio'] { 
+      margin-right: 10px; 
+      transform: scale(1.1);
+    }
+    img { 
+      max-width: 100%; 
+      height: auto; 
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
+      margin-top: 1em; 
+    }
+    pre { 
+      background-color: #2d2d2d; 
+      color: #f1f1f1; 
+      padding: 1em; 
+      border-radius: 5px; 
+      overflow-x: auto; 
+    }
+    .submit-btn { 
+      display: block;
+      margin: 2em auto;
+      background-color: #007BFF; 
+      color: white; 
+      padding: 12px 25px; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      font-size: 18px; 
+      font-weight: bold; 
+    }
+    .submit-btn:hover { 
+      background-color: #0056b3; 
+    }
+    /* --- NEW STYLES FOR GRADING --- */
+    #results {
+      padding: 1em;
+      margin: 2em 0;
+      border-radius: 8px;
+      text-align: center;
+      background-color: #e6f7ff;
+      border: 1px solid #b3e0ff;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #0056b3;
+    }
+    .correct {
+      background-color: #d4edda !important;
+      border: 1px solid #c3e6cb;
+      font-weight: bold;
+    }
+    .incorrect {
+      background-color: #f8d7da !important;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+  <h1>Software Testing Quiz</h1>
+  <div id="results" style="display: none;"></div>
+  
+  <form id="quizForm" onsubmit="handleSubmit(event)">
+
+<div class='question-block'>
+  <h3>Question 1: In the classical waterfall software development lifecycle, when is testing done?</h3>
+  <label for='q1_A' id='label-q1-A'>
+    <input type='radio' name='q1' id='q1_A' value='A'>
+    Along with coding.
+  </label>
+  <label for='q1_B' id='label-q1-B'>
+    <input type='radio' name='q1' id='q1_B' value='B'>
+    After complete coding is done.
+  </label>
+  <label for='q1_C' id='label-q1-C'>
+    <input type='radio' name='q1' id='q1_C' value='C'>
+    Coding and testing are repeated one after another.
+  </label>
+  <label for='q1_D' id='label-q1-D'>
+    <input type='radio' name='q1' id='q1_D' value='D'>
+    After complete coding and integration with system.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 2: In Agile methodologies for software development, when is testing done?</h3>
+  <label for='q2_A' id='label-q2-A'>
+    <input type='radio' name='q2' id='q2_A' value='A'>
+    Testing is done along with coding by developers.
+  </label>
+  <label for='q2_B' id='label-q2-B'>
+    <input type='radio' name='q2' id='q2_B' value='B'>
+    Testing is done along with coding by testers.
+  </label>
+  <label for='q2_C' id='label-q2-C'>
+    <input type='radio' name='q2' id='q2_C' value='C'>
+    Testing is done after coding by developers.
+  </label>
+  <label for='q2_D' id='label-q2-D'>
+    <input type='radio' name='q2' id='q2_D' value='D'>
+    Testing is done after coding by testers.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 3: Which of the following best defines black box testing?</h3>
+  <label for='q3_A' id='label-q3-A'>
+    <input type='radio' name='q3' id='q3_A' value='A'>
+    Testing done on the entire software.
+  </label>
+  <label for='q3_B' id='label-q3-B'>
+    <input type='radio' name='q3' id='q3_B' value='B'>
+    Testing done to exercise parts of the software.
+  </label>
+  <label for='q3_C' id='label-q3-C'>
+    <input type='radio' name='q3' id='q3_C' value='C'>
+    Testing done based on requirements only.
+  </label>
+  <label for='q3_D' id='label-q3-D'>
+    <input type='radio' name='q3' id='q3_D' value='D'>
+    Testing done based on the structure of the software.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 4: What is regression testing?</h3>
+  <label for='q4_A' id='label-q4-A'>
+    <input type='radio' name='q4' id='q4_A' value='A'>
+    Testing done each time code is modified to ensure that the newly added code works as expected along with the existing code.
+  </label>
+  <label for='q4_B' id='label-q4-B'>
+    <input type='radio' name='q4' id='q4_B' value='B'>
+    Testing done on the entire code each time a part of it is modified.
+  </label>
+  <label for='q4_C' id='label-q4-C'>
+    <input type='radio' name='q4' id='q4_C' value='C'>
+    Testing done on the entire code after release, for each modification.
+  </label>
+  <label for='q4_D' id='label-q4-D'>
+    <input type='radio' name='q4' id='q4_D' value='D'>
+    Testing done by customer on the newly added features in the code.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 5: State true or false: Testing can be entirely automated and done by using a tool without human intervention.</h3>
+  <label for='q5_A' id='label-q5-A'>
+    <input type='radio' name='q5' id='q5_A' value='A'>
+    True
+  </label>
+  <label for='q5_B' id='label-q5-B'>
+    <input type='radio' name='q5' id='q5_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 6: The term control flow graph, as used in testing, refers to which of the following?</h3>
+  <label for='q6_A' id='label-q6-A'>
+    <input type='radio' name='q6' id='q6_A' value='A'>
+    Graph representing the way functions or methods calling another function or method respectively.
+  </label>
+  <label for='q6_B' id='label-q6-B'>
+    <input type='radio' name='q6' id='q6_B' value='B'>
+    Graph representing the flow chart of the program.
+  </label>
+  <label for='q6_C' id='label-q6-C'>
+    <input type='radio' name='q6' id='q6_C' value='C'>
+    Graph representing all possible paths that might be traversed by a program.
+  </label>
+  <label for='q6_D' id='label-q6-D'>
+    <input type='radio' name='q6' id='q6_D' value='D'>
+    Graph representing the statements, decisions and loops in a program.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 7: State true or false: Control flow graphs and data flow graphs are used in black box testing.</h3>
+  <label for='q7_A' id='label-q7-A'>
+    <input type='radio' name='q7' id='q7_A' value='A'>
+    True
+  </label>
+  <label for='q7_B' id='label-q7-B'>
+    <input type='radio' name='q7' id='q7_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 8: Which testing technique listed below uses relational and logical operators?</h3>
+  <label for='q8_A' id='label-q8-A'>
+    <input type='radio' name='q8' id='q8_A' value='A'>
+    Testing for functionality.
+  </label>
+  <label for='q8_B' id='label-q8-B'>
+    <input type='radio' name='q8' id='q8_B' value='B'>
+    Testing based on inputs and expected outputs.
+  </label>
+  <label for='q8_C' id='label-q8-C'>
+    <input type='radio' name='q8' id='q8_C' value='C'>
+    Testing for execution of decision statements in code.
+  </label>
+  <label for='q8_D' id='label-q8-D'>
+    <input type='radio' name='q8' id='q8_D' value='D'>
+    Testing for execution of decisions and loops in code.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 9: State true or false: While testing web applications, both client side and server side testing is done.</h3>
+  <label for='q9_A' id='label-q9-A'>
+    <input type='radio' name='q9' id='q9_A' value='A'>
+    True.
+  </label>
+  <label for='q9_B' id='label-q9-B'>
+    <input type='radio' name='q9' id='q9_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 10: Which of the following constitutes non-functional testing?</h3>
+  <label for='q10_A' id='label-q10-A'>
+    <input type='radio' name='q10' id='q10_A' value='A'>
+    Performance testing.
+  </label>
+  <label for='q10_B' id='label-q10-B'>
+    <input type='radio' name='q10' id='q10_B' value='B'>
+    Black-box testing.
+  </label>
+  <label for='q10_C' id='label-q10-C'>
+    <input type='radio' name='q10' id='q10_C' value='C'>
+    White-box testing.
+  </label>
+  <label for='q10_D' id='label-q10-D'>
+    <input type='radio' name='q10' id='q10_D' value='D'>
+    Integration testing.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 11: Which of the following best defines a test case as per the lectures?</h3>
+  <label for='q11_A' id='label-q11-A'>
+    <input type='radio' name='q11' id='q11_A' value='A'>
+    A test case contains inputs to software.
+  </label>
+  <label for='q11_B' id='label-q11-B'>
+    <input type='radio' name='q11' id='q11_B' value='B'>
+    A test case contains inputs and expected outputs to software.
+  </label>
+  <label for='q11_C' id='label-q11-C'>
+    <input type='radio' name='q11' id='q11_C' value='C'>
+    A test case contains inputs to software, which is run and the actual output is also recorded as a part of the test case.
+  </label>
+  <label for='q11_D' id='label-q11-D'>
+    <input type='radio' name='q11' id='q11_D' value='D'>
+    A test case contains inputs and a decision on pass or fail.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 12: Which of the following represents usability testing?</h3>
+  <label for='q12_A' id='label-q12-A'>
+    <input type='radio' name='q12' id='q12_A' value='A'>
+    Testing done by an user of the software.
+  </label>
+  <label for='q12_B' id='label-q12-B'>
+    <input type='radio' name='q12' id='q12_B' value='B'>
+    Testing done to see if the software is usable in the sense that it meets its functionality.
+  </label>
+  <label for='q12_C' id='label-q12-C'>
+    <input type='radio' name='q12' id='q12_C' value='C'>
+    Testing done to evaluate the software’s user interface and its design.
+  </label>
+  <label for='q12_D' id='label-q12-D'>
+    <input type='radio' name='q12' id='q12_D' value='D'>
+    Testing done to see if the software is fast enough to be usable.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 13: When do we say that a set of test cases T satisfies test requirements TR for a coverage criterion C?</h3>
+  <label for='q13_A' id='label-q13-A'>
+    <input type='radio' name='q13' id='q13_A' value='A'>
+    For every test requirement tr ∈ TR, there is exactly one test case t ∈ T such that t satisfies tr.
+  </label>
+  <label for='q13_B' id='label-q13-B'>
+    <input type='radio' name='q13' id='q13_B' value='B'>
+    For some test requirement tr ∈ TR, there is some test case t such that t ∈ T such that t satisfies tr.
+  </label>
+  <label for='q13_C' id='label-q13-C'>
+    <input type='radio' name='q13' id='q13_C' value='C'>
+    For some test requirement tr ∈ TR, all the test cases t ∈ T are such that t satisfies tr.
+  </label>
+  <label for='q13_D' id='label-q13-D'>
+    <input type='radio' name='q13' id='q13_D' value='D'>
+    For every test requirement tr ∈ TR, there is at least one test case t ∈ T such that t satisfies tr.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 14: In which of the levels of testing, do testers use testing to show errors in software?</h3>
+  <label for='q14_A' id='label-q14-A'>
+    <input type='radio' name='q14' id='q14_A' value='A'>
+    Level 3.
+  </label>
+  <label for='q14_B' id='label-q14-B'>
+    <input type='radio' name='q14' id='q14_B' value='B'>
+    Level 4.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 15: Choose the right option to fill in the blank:</h3>
+  <p>Suppose a method M1 calls a method M2, which in turn, calls another method M3. The level of testing that tests for the interface of calls from M1 to M2 and then to M3 is called as _______.</p>
+  <label for='q15_A' id='label-q15-A'>
+    <input type='radio' name='q15' id='q15_A' value='A'>
+    Functional testing.
+  </label>
+  <label for='q15_B' id='label-q15-B'>
+    <input type='radio' name='q15' id='q15_B' value='B'>
+    Unit testing.
+  </label>
+  <label for='q15_C' id='label-q15-C'>
+    <input type='radio' name='q15' id='q15_C' value='C'>
+    Integration testing.
+  </label>
+  <label for='q15_D' id='label-q15-D'>
+    <input type='radio' name='q15' id='q15_D' value='D'>
+    System testing.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 16: State true or false: A coverage criterion C1 is said to subsume another coverage criterion C2 if there is at least one test case that satisfies C1 which also satisfies C2.</h3>
+  <label for='q16_A' id='label-q16-A'>
+    <input type='radio' name='q16' id='q16_A' value='A'>
+    True
+  </label>
+  <label for='q16_B' id='label-q16-B'>
+    <input type='radio' name='q16' id='q16_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 17: State true or false: Testing can be used to find all the errors in code.</h3>
+  <label for='q17_A' id='label-q17-A'>
+    <input type='radio' name='q17' id='q17_A' value='A'>
+    True
+  </label>
+  <label for='q17_B' id='label-q17-B'>
+    <input type='radio' name='q17' id='q17_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 18: Which of the following are practised in level 3 thinking during testing?</h3>
+  <label for='q18_A' id='label-q18-A'>
+    <input type='radio' name='q18' id='q18_A' value='A'>
+    Testing is a mental discipline, everyone in an organization strives to test thoroughly.
+  </label>
+  <label for='q18_B' id='label-q18-B'>
+    <input type='radio' name='q18' id='q18_B' value='B'>
+    Testing is done mainly by developers, to debug their code.
+  </label>
+  <label for='q18_C' id='label-q18-C'>
+    <input type='radio' name='q18' id='q18_C' value='C'>
+    Testing is done to identify failures and reduce risks.
+  </label>
+  <label for='q18_D' id='label-q18-D'>
+    <input type='radio' name='q18' id='q18_D' value='D'>
+    Testing is done to show absence of errors.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 19: Which of the following best defines usability testing?</h3>
+  <label for='q19_A' id='label-q19-A'>
+    <input type='radio' name='q19' id='q19_A' value='A'>
+    Testing done to ensure that the software looks nice.
+  </label>
+  <label for='q19_B' id='label-q19-B'>
+    <input type='radio' name='q19' id='q19_B' value='B'>
+    Testing done to ensure that the software is usable by all the users.
+  </label>
+  <label for='q19_C' id='label-q19-C'>
+    <input type='radio' name='q19' id='q19_C' value='C'>
+    Testing done to understand how users can use a software.
+  </label>
+  <label for='q19_D' id='label-q19-D'>
+    <input type='radio' name='q19' id='q19_D' value='D'>
+    Testing done to ensure that the user interface of the software is as specified in the requirements.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 20: Which of the following is a list of white-box testing techniques?</h3>
+  <label for='q20_A' id='label-q20-A'>
+    <input type='radio' name='q20' id='q20_A' value='A'>
+    Unit testing, performance testing.
+  </label>
+  <label for='q20_B' id='label-q20-B'>
+    <input type='radio' name='q20' id='q20_B' value='B'>
+    Integration testing, stress testing.
+  </label>
+  <label for='q20_C' id='label-q20-C'>
+    <input type='radio' name='q20' id='q20_C' value='C'>
+    Unit testing, integration testing.
+  </label>
+  <label for='q20_D' id='label-q20-D'>
+    <input type='radio' name='q20' id='q20_D' value='D'>
+    Usability testing, performance testing.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 21: As per the lectures, which of the following sentences best defines a test case?</h3>
+  <label for='q21_A' id='label-q21-A'>
+    <input type='radio' name='q21' id='q21_A' value='A'>
+    A test case contains only inputs to the software artifact.
+  </label>
+  <label for='q21_B' id='label-q21-B'>
+    <input type='radio' name='q21' id='q21_B' value='B'>
+    A test case contains inputs to the software artifact along with the expected outputs.
+  </label>
+  <label for='q21_C' id='label-q21-C'>
+    <input type='radio' name='q21' id='q21_C' value='C'>
+    A test case contains inputs to the software artifact and a decision on pass or fail.
+  </label>
+  <label for='q21_D' id='label-q21-D'>
+    <input type='radio' name='q21' id='q21_D' value='D'>
+    A test case contains inputs to the software artifact, which is run and the actual output is also recorded as a part of the test case.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 22: When do we say that a set of test cases T satisfies the test requirements TR for a coverage criterion C?</h3>
+  <label for='q22_A' id='label-q22-A'>
+    <input type='radio' name='q22' id='q22_A' value='A'>
+    For every test requirement tr ∈ TR, there is exactly one test case t ∈ T such that t satisfies tr.
+  </label>
+  <label for='q22_B' id='label-q22-B'>
+    <input type='radio' name='q22' id='q22_B' value='B'>
+    For some test requirement tr ∈ TR, there is some test case t ∈ T such that t satisfies tr.
+  </label>
+  <label for='q22_C' id='label-q22-C'>
+    <input type='radio' name='q22' id='q22_C' value='C'>
+    For some test requirement tr ∈ TR, all the test cases t ∈ T are such that t satisfies tr.
+  </label>
+  <label for='q22_D' id='label-q22-D'>
+    <input type='radio' name='q22' id='q22_D' value='D'>
+    For every test requirement tr ∈ TR, there is at least one test case t ∈ T such that t satisfies tr.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 23: When do we say that a coverage criterion C1 subsumes a coverage criterion C2?</h3>
+  <label for='q23_A' id='label-q23-A'>
+    <input type='radio' name='q23' id='q23_A' value='A'>
+    C1 subsumes C2 iff some test case that satisfies C1 also satisfies C2.
+  </label>
+  <label for='q23_B' id='label-q23-B'>
+    <input type='radio' name='q23' id='q23_B' value='B'>
+    C1 subsumes C2 iff every test case that satisfies C1 also satisfies C2.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 24: What does the JUnit assertion `assertFalse(val1 &gt; val2)` return when val1 is less than val2?</h3>
+  <label for='q24_A' id='label-q24-A'>
+    <input type='radio' name='q24' id='q24_A' value='A'>
+    True.
+  </label>
+  <label for='q24_B' id='label-q24-B'>
+    <input type='radio' name='q24' id='q24_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 25: When do we say that a test path p tours a path q?</h3>
+  <label for='q25_A' id='label-q25-A'>
+    <input type='radio' name='q25' id='q25_A' value='A'>
+    We say that a test path p tours a path q if q is a sub-path of p.
+  </label>
+  <label for='q25_B' id='label-q25-B'>
+    <input type='radio' name='q25' id='q25_B' value='B'>
+    We say that a test path p tours a path q if p is a sub-path of q.
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 26-29</h4>
+  <p>The following graph will be used for the next seven questions:</p>
+  <p><strong>Graph G = (V, E):</strong></p>
+  <p>- Nodes: V = {1, 2, 3, 4, 5, 6, 7}</p>
+  <p>- Initial node: 1</p>
+  <p>- Final node: 7</p>
+  <p>- Edges: E = {(1, 2), (1, 7), (2, 3), (2, 4), (3, 2), (4, 5), (4, 6), (5, 6), (6, 1)}</p>
+</div>
+
+<div class='question-block'>
+  <h3>Question 26: How many requirements are there for edge pair coverage?</h3>
+  <label for='q26_A' id='label-q26-A'>
+    <input type='radio' name='q26' id='q26_A' value='A'>
+    10 requirements
+  </label>
+  <label for='q26_B' id='label-q26-B'>
+    <input type='radio' name='q26' id='q26_B' value='B'>
+    12 requirements.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 27: Which of the following test paths satisfy node coverage but not edge coverage on the graph?</h3>
+  <label for='q27_A' id='label-q27-A'>
+    <input type='radio' name='q27' id='q27_A' value='A'>
+    Test path [1, 2, 4, 6, 1, 7]
+  </label>
+  <label for='q27_B' id='label-q27-B'>
+    <input type='radio' name='q27' id='q27_B' value='B'>
+    Test path [1, 2, 4, 5, 6, 1, 7]
+  </label>
+  <label for='q27_C' id='label-q27-C'>
+    <input type='radio' name='q27' id='q27_C' value='C'>
+    Test path [1, 2, 3, 2, 4, 6, 1, 7]
+  </label>
+  <label for='q27_D' id='label-q27-D'>
+    <input type='radio' name='q27' id='q27_D' value='D'>
+    Test path [1, 2, 3, 2, 4, 5, 6, 1, 7].
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 28: What do the prime paths [2, 3, 2] and [3, 2, 3] together represent?</h3>
+  <label for='q28_A' id='label-q28-A'>
+    <input type='radio' name='q28' id='q28_A' value='A'>
+    They represent two ways of going around the loop between the vertices 2 and 3.
+  </label>
+  <label for='q28_B' id='label-q28-B'>
+    <input type='radio' name='q28' id='q28_B' value='B'>
+    They represent more than one iteration of the loop between the vertices 2 and 3.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 29: Consider the simple path [3, 2, 4, 5, 6] and test path [1, 2, 3, 2, 4, 6, 1, 2, 4, 5, 6, 1, 7]. Does the test path tour the simple path directly or with a sidetrip?</h3>
+  <label for='q29_A' id='label-q29-A'>
+    <input type='radio' name='q29' id='q29_A' value='A'>
+    The test path tours the simple path directly.
+  </label>
+  <label for='q29_B' id='label-q29-B'>
+    <input type='radio' name='q29' id='q29_B' value='B'>
+    The test path tours the simple path with a side trip [4, 6, 1, 2, 4].
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 30: Which of the following best defines an infeasible test path?</h3>
+  <label for='q30_A' id='label-q30-A'>
+    <input type='radio' name='q30' id='q30_A' value='A'>
+    An infeasible test path is one that does not exist in the graph.
+  </label>
+  <label for='q30_B' id='label-q30-B'>
+    <input type='radio' name='q30' id='q30_B' value='B'>
+    An infeasible test path is one that can be executed by a failed test case.
+  </label>
+  <label for='q30_C' id='label-q30-C'>
+    <input type='radio' name='q30' id='q30_C' value='C'>
+    An infeasible test path is one that cannot be executed by any test case.
+  </label>
+  <label for='q30_D' id='label-q30-D'>
+    <input type='radio' name='q30' id='q30_D' value='D'>
+    An infeasible test path is one that does not start at an initial vertex or end at a final vertex.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 31: How are test requirements defined and met in graphs-based structural coverage criteria?</h3>
+  <label for='q31_A' id='label-q31-A'>
+    <input type='radio' name='q31' id='q31_A' value='A'>
+    Test requirements are basically the same as test paths, they are given as test paths.
+  </label>
+  <label for='q31_B' id='label-q31-B'>
+    <input type='radio' name='q31' id='q31_B' value='B'>
+    Test requirements are defined as properties of test paths and they are met by using test paths that satisfy each test requirement.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 32: In control flow graphs, which of the terms below represents a basic block?</h3>
+  <label for='q32_A' id='label-q32-A'>
+    <input type='radio' name='q32' id='q32_A' value='A'>
+    A basic block is a sequence of statements such that there is no branching in the sequence.
+  </label>
+  <label for='q32_B' id='label-q32-B'>
+    <input type='radio' name='q32' id='q32_B' value='B'>
+    A basic block is any sequence of statements that occurs as a path in the control flow graph.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 33: Consider a control flow graph G corresponding to a method and a strongly connected component S in G. Which of the following does S represent in the code that G corresponds to?</h3>
+  <label for='q33_A' id='label-q33-A'>
+    <input type='radio' name='q33' id='q33_A' value='A'>
+    S represents the entire method in case the method does not have loops.
+  </label>
+  <label for='q33_B' id='label-q33-B'>
+    <input type='radio' name='q33' id='q33_B' value='B'>
+    S represents a loop in the method.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 34: Which of the algorithms will return the shortest paths between two nodes in a control flow graph? \</h3>
+  <p><img src='images/wk2.png' alt='Quiz Image for question 34'></p>
+  <label for='q34_A' id='label-q34-A'>
+    <input type='radio' name='q34' id='q34_A' value='A'>
+    Breadth first search.
+  </label>
+  <label for='q34_B' id='label-q34-B'>
+    <input type='radio' name='q34' id='q34_B' value='B'>
+    Depth first search.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 35: State true or false: There are test paths that achieve node coverage but not edge coverage.</h3>
+  <label for='q35_A' id='label-q35-A'>
+    <input type='radio' name='q35' id='q35_A' value='A'>
+    True.
+  </label>
+  <label for='q35_B' id='label-q35-B'>
+    <input type='radio' name='q35' id='q35_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 36: Which of the following test paths achieve edge coverage?</h3>
+  <label for='q36_A' id='label-q36-A'>
+    <input type='radio' name='q36' id='q36_A' value='A'>
+    Test path [1, 2, 3, 2, 4].
+  </label>
+  <label for='q36_B' id='label-q36-B'>
+    <input type='radio' name='q36' id='q36_B' value='B'>
+    Test paths [1, 2, 4] and [1, 2, 3, 2].
+  </label>
+  <label for='q36_C' id='label-q36-C'>
+    <input type='radio' name='q36' id='q36_C' value='C'>
+    Both the paths above achieve edge coverage.
+  </label>
+  <label for='q36_D' id='label-q36-D'>
+    <input type='radio' name='q36' id='q36_D' value='D'>
+    None of the above two paths achieve edge coverage.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 37: State yes or no: In the graph above, the test path [1, 2, 3, 2, 4] tours the pair of edges [3, 2, 3].</h3>
+  <label for='q37_A' id='label-q37-A'>
+    <input type='radio' name='q37' id='q37_A' value='A'>
+    Yes
+  </label>
+  <label for='q37_B' id='label-q37-B'>
+    <input type='radio' name='q37' id='q37_B' value='B'>
+    No.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 38: The test paths {[1, 2, 4], [1, 2, 3, 2, 3, 2, 4]} achieve which of the following coverage criteria?</h3>
+  <label for='q38_A' id='label-q38-A'>
+    <input type='radio' name='q38' id='q38_A' value='A'>
+    Node coverage only.
+  </label>
+  <label for='q38_B' id='label-q38-B'>
+    <input type='radio' name='q38' id='q38_B' value='B'>
+    Edge coverage only.
+  </label>
+  <label for='q38_C' id='label-q38-C'>
+    <input type='radio' name='q38' id='q38_C' value='C'>
+    Node and edge coverage only.
+  </label>
+  <label for='q38_D' id='label-q38-D'>
+    <input type='radio' name='q38' id='q38_D' value='D'>
+    Edge pair coverage.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 39: State true or false: The test path [1, 2, 3, 2, 4] achieves edge coverage.</h3>
+  <label for='q39_A' id='label-q39-A'>
+    <input type='radio' name='q39' id='q39_A' value='A'>
+    True.
+  </label>
+  <label for='q39_B' id='label-q39-B'>
+    <input type='radio' name='q39' id='q39_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 40-46</h4>
+  <p>The following description is that of a CFG whose nodes are labelled with statements involving five different variables, namely, x, y, w, z, and m. The CFG corresponds to a program fragment that has two decision statements. Answer the following questions with respect to this CFG and the definitions and uses of the variables, as per the statements.</p>
+  <p><img src='images/wk3.png' alt='Quiz Image for question 0'></p>
+</div>
+
+<div class='question-block'>
+  <h3>Question 40: Which of the following is a list of nodes having defs for variable w?</h3>
+  <label for='q40_A' id='label-q40-A'>
+    <input type='radio' name='q40' id='q40_A' value='A'>
+    Nodes 1, 2, 3 have defs for w.
+  </label>
+  <label for='q40_B' id='label-q40-B'>
+    <input type='radio' name='q40' id='q40_B' value='B'>
+    Nodes 2 and 3 have defs for w.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 41: Which of the following is a list of nodes having uses for variable w?</h3>
+  <label for='q41_A' id='label-q41-A'>
+    <input type='radio' name='q41' id='q41_A' value='A'>
+    Nodes 2, 3, and 7 have uses for w.
+  </label>
+  <label for='q41_B' id='label-q41-B'>
+    <input type='radio' name='q41' id='q41_B' value='B'>
+    Nodes 2 and 3 have uses for w.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 42: State true or false: Nodes 4, 5 and 6 have uses for variable x.</h3>
+  <label for='q42_A' id='label-q42-A'>
+    <input type='radio' name='q42' id='q42_A' value='A'>
+    True
+  </label>
+  <label for='q42_B' id='label-q42-B'>
+    <input type='radio' name='q42' id='q42_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 43: State yes or no: Are there any du-paths with respect to variable w from node 1 to node 7?</h3>
+  <label for='q43_A' id='label-q43-A'>
+    <input type='radio' name='q43' id='q43_A' value='A'>
+    Yes
+  </label>
+  <label for='q43_B' id='label-q43-B'>
+    <input type='radio' name='q43' id='q43_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 44: Does the statement at node 7 correspond to a definition or a use for the variable z?</h3>
+  <label for='q44_A' id='label-q44-A'>
+    <input type='radio' name='q44' id='q44_A' value='A'>
+    It corresponds to a definition of z.
+  </label>
+  <label for='q44_B' id='label-q44-B'>
+    <input type='radio' name='q44' id='q44_B' value='B'>
+    It corresponds to a use of z.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 45: Which of the following is a list of du-paths for the variable w?</h3>
+  <label for='q45_A' id='label-q45-A'>
+    <input type='radio' name='q45' id='q45_A' value='A'>
+    Paths [2, 4, 5, 7], [2, 4, 6, 7], [3, 4, 5, 7] and [3, 4, 6, 7].
+  </label>
+  <label for='q45_B' id='label-q45-B'>
+    <input type='radio' name='q45' id='q45_B' value='B'>
+    Paths [1, 2], [1, 3], [2, 4, 5, 7], [2, 4, 6, 7], [3, 4, 5, 7] and [3, 4, 6, 7].
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 46: Which of the following is a list of du-paths for the variable x?</h3>
+  <label for='q46_A' id='label-q46-A'>
+    <input type='radio' name='q46' id='q46_A' value='A'>
+    Paths [5, 7] and [6, 7].
+  </label>
+  <label for='q46_B' id='label-q46-B'>
+    <input type='radio' name='q46' id='q46_B' value='B'>
+    Paths [5, 7], [6, 7] and [7, 7].
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 47: Which of the following represents a basic block in a control flow graph?</h3>
+  <label for='q47_A' id='label-q47-A'>
+    <input type='radio' name='q47' id='q47_A' value='A'>
+    A basic block of statements is a set of all statements that are a part of a function that the control flow graph represents.
+  </label>
+  <label for='q47_B' id='label-q47-B'>
+    <input type='radio' name='q47' id='q47_B' value='B'>
+    A basic block of statements is a sequence of statements such that if the first statement in the sequence is executed then all the statements in the sequence will also be executed.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 48: Consider a variable `count` of type int. Suppose there is a method that has a statement of the type `count++;`. Which of the following statements are correct regarding the data flow definition of `count`?</h3>
+  <label for='q48_A' id='label-q48-A'>
+    <input type='radio' name='q48' id='q48_A' value='A'>
+    The statement is a definition of count.
+  </label>
+  <label for='q48_B' id='label-q48-B'>
+    <input type='radio' name='q48' id='q48_B' value='B'>
+    The statement is a use of count.
+  </label>
+  <label for='q48_C' id='label-q48-C'>
+    <input type='radio' name='q48' id='q48_C' value='C'>
+    The statement is both a definition and use of count.
+  </label>
+  <label for='q48_D' id='label-q48-D'>
+    <input type='radio' name='q48' id='q48_D' value='D'>
+    The statement is neither a definition nor a use of count.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 49: Consider a variable `x` of type double and suppose a particular method in Java has a statement `if(Math.log(x) &gt;= 4.2)`. Will it be considered a definition of x or a use of x?</h3>
+  <label for='q49_A' id='label-q49-A'>
+    <input type='radio' name='q49' id='q49_A' value='A'>
+    The statement is a definition of x.
+  </label>
+  <label for='q49_B' id='label-q49-B'>
+    <input type='radio' name='q49' id='q49_B' value='B'>
+    The statement is a use of x.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 50: State true or false: Consider a variable x in a program. Not every definition of x will always reach a use.</h3>
+  <label for='q50_A' id='label-q50-A'>
+    <input type='radio' name='q50' id='q50_A' value='A'>
+    True.
+  </label>
+  <label for='q50_B' id='label-q50-B'>
+    <input type='radio' name='q50' id='q50_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 51: Which of the following best defines a du-path for a variable x?</h3>
+  <label for='q51_A' id='label-q51-A'>
+    <input type='radio' name='q51' id='q51_A' value='A'>
+    A du-path is a simple path from a definition of x to a use of x without any further definitions of x in-between.
+  </label>
+  <label for='q51_B' id='label-q51-B'>
+    <input type='radio' name='q51' id='q51_B' value='B'>
+    A du-path is a path from a definition of x to a use of x without any further definitions of x in-between.
+  </label>
+  <label for='q51_C' id='label-q51-C'>
+    <input type='radio' name='q51' id='q51_C' value='C'>
+    A du-path is a simple path from a definition of x to a use of x without any further uses of x in-between.
+  </label>
+  <label for='q51_D' id='label-q51-D'>
+    <input type='radio' name='q51' id='q51_D' value='D'>
+    A du-path is a path from a definition of x to a use of x without any further uses of x in-between.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 52: State yes or no: We group du-paths with respect to a variable by their definitions.</h3>
+  <label for='q52_A' id='label-q52-A'>
+    <input type='radio' name='q52' id='q52_A' value='A'>
+    Yes.
+  </label>
+  <label for='q52_B' id='label-q52-B'>
+    <input type='radio' name='q52' id='q52_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 53: Is it true that the all-du-paths data flow coverage criterion subsumes prime path coverage?</h3>
+  <label for='q53_A' id='label-q53-A'>
+    <input type='radio' name='q53' id='q53_A' value='A'>
+    Yes
+  </label>
+  <label for='q53_B' id='label-q53-B'>
+    <input type='radio' name='q53' id='q53_B' value='B'>
+    No.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 54: Which of the following statements are true when it comes to comparing traditional source code coverage criteria with graph-based coverage criteria?</h3>
+  <label for='q54_A' id='label-q54-A'>
+    <input type='radio' name='q54' id='q54_A' value='A'>
+    Node and statement coverage are the same, edge and branch coverage are the same.
+  </label>
+  <label for='q54_B' id='label-q54-B'>
+    <input type='radio' name='q54' id='q54_B' value='B'>
+    Edge and decision coverage are the same.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 55: Which of the following defines a linearly independent path of execution in a control flow graph?</h3>
+  <label for='q55_A' id='label-q55-A'>
+    <input type='radio' name='q55' id='q55_A' value='A'>
+    A path in which there are no branches.
+  </label>
+  <label for='q55_B' id='label-q55-B'>
+    <input type='radio' name='q55' id='q55_B' value='B'>
+    A path which does not contain other paths within it.
+  </label>
+  <label for='q55_C' id='label-q55-C'>
+    <input type='radio' name='q55' id='q55_C' value='C'>
+    A path that represents structural complexity of a program.
+  </label>
+  <label for='q55_D' id='label-q55-D'>
+    <input type='radio' name='q55' id='q55_D' value='D'>
+    A path within a connected component.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 56: State true or false: Node and edge coverage, as test requirements for structural coverage over graphs, are given with the input graph itself.</h3>
+  <label for='q56_A' id='label-q56-A'>
+    <input type='radio' name='q56' id='q56_A' value='A'>
+    True.
+  </label>
+  <label for='q56_B' id='label-q56-B'>
+    <input type='radio' name='q56' id='q56_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 57: A node in a callee function that defines a variable x and has a def-clear path from the node through a call site to a caller function is referred to as _______.</h3>
+  <label for='q57_A' id='label-q57-A'>
+    <input type='radio' name='q57' id='q57_A' value='A'>
+    Last-def of x.
+  </label>
+  <label for='q57_B' id='label-q57-B'>
+    <input type='radio' name='q57' id='q57_B' value='B'>
+    Def of x.
+  </label>
+  <label for='q57_C' id='label-q57-C'>
+    <input type='radio' name='q57' id='q57_C' value='C'>
+    First-use of x.
+  </label>
+  <label for='q57_D' id='label-q57-D'>
+    <input type='radio' name='q57' id='q57_D' value='D'>
+    Use of x.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 58: State true or false: Both top-down and bottom-up integration testing work well with a hierarchical design.</h3>
+  <label for='q58_A' id='label-q58-A'>
+    <input type='radio' name='q58' id='q58_A' value='A'>
+    True.
+  </label>
+  <label for='q58_B' id='label-q58-B'>
+    <input type='radio' name='q58' id='q58_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 59: State true or false: Control flow graphs are finite state machines representing code.</h3>
+  <label for='q59_A' id='label-q59-A'>
+    <input type='radio' name='q59' id='q59_A' value='A'>
+    True
+  </label>
+  <label for='q59_B' id='label-q59-B'>
+    <input type='radio' name='q59' id='q59_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 60: Which of the following best describes pre-conditions in finite state machines?</h3>
+  <label for='q60_A' id='label-q60-A'>
+    <input type='radio' name='q60' id='q60_A' value='A'>
+    They are conditions that must be true for transitions to be taken.
+  </label>
+  <label for='q60_B' id='label-q60-B'>
+    <input type='radio' name='q60' id='q60_B' value='B'>
+    They represent sequencing constraints that describe the order in which methods need to be called.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 61: Which of the following best describes a test driver?</h3>
+  <label for='q61_A' id='label-q61-A'>
+    <input type='radio' name='q61' id='q61_A' value='A'>
+    It is a special purpose implementation of a software module, used to develop or test a component that calls it.
+  </label>
+  <label for='q61_B' id='label-q61-B'>
+    <input type='radio' name='q61' id='q61_B' value='B'>
+    It is a software component that replaces another component that takes care of the control and/or the calling of a software component.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 62: If method A uses a variable v shared with method B, where A writes to v and B reads from v, then it is an example of which kind of coupling interface?</h3>
+  <label for='q62_A' id='label-q62-A'>
+    <input type='radio' name='q62' id='q62_A' value='A'>
+    Parameter coupling
+  </label>
+  <label for='q62_B' id='label-q62-B'>
+    <input type='radio' name='q62' id='q62_B' value='B'>
+    Interface coupling
+  </label>
+  <label for='q62_C' id='label-q62-C'>
+    <input type='radio' name='q62' id='q62_C' value='C'>
+    External coupling
+  </label>
+  <label for='q62_D' id='label-q62-D'>
+    <input type='radio' name='q62' id='q62_D' value='D'>
+    Shared data coupling.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 63: To test sequencing constraints that occur as requirements specification, which of the following tests are used?</h3>
+  <label for='q63_A' id='label-q63-A'>
+    <input type='radio' name='q63' id='q63_A' value='A'>
+    Tests are inputs to sequencing constraints that violate the constraints.
+  </label>
+  <label for='q63_B' id='label-q63-B'>
+    <input type='radio' name='q63' id='q63_B' value='B'>
+    Tests are inputs to sequencing constraints that satisfy the constraints.
+  </label>
+  <label for='q63_C' id='label-q63-C'>
+    <input type='radio' name='q63' id='q63_C' value='C'>
+    Tests are sequences of method calls, as they occur in the specification.
+  </label>
+  <label for='q63_D' id='label-q63-D'>
+    <input type='radio' name='q63' id='q63_D' value='D'>
+    Tests are randomly generated sequencing constraints.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 64: A simple path from the last definition to the first use of a coupling variable is called as _______.</h3>
+  <label for='q64_A' id='label-q64-A'>
+    <input type='radio' name='q64' id='q64_A' value='A'>
+    A du-path
+  </label>
+  <label for='q64_B' id='label-q64-B'>
+    <input type='radio' name='q64' id='q64_B' value='B'>
+    A coupling du-path.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 65: State Yes or No: Are control flow graphs representing code the same as finite state machines that represent the same code?</h3>
+  <label for='q65_A' id='label-q65-A'>
+    <input type='radio' name='q65' id='q65_A' value='A'>
+    Yes
+  </label>
+  <label for='q65_B' id='label-q65-B'>
+    <input type='radio' name='q65' id='q65_B' value='B'>
+    No.
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 66-70</h4>
+  <p>Consider the graph below that depicts the calls to file handler methods `open()`, `close()`, `read()` and `write()`. Any procedure/method that uses these methods has to satisfy the following sequencing constraints:</p>
+  <p>1. An `open(f)` must be executed before every `write(t)`</p>
+  <p>2. An `open(f)` must be executed before every `close()`</p>
+  <p>3. A `write(f)` may not be executed after a `close()` unless there is an `open(f)` in between</p>
+  <p>4. A `write(t)` should be executed before every `close()`</p>
+  <p><img src='images/wk4.png' alt='Quiz Image for question 0'></p>
+</div>
+
+<div class='question-block'>
+  <h3>Question 66: Which of the following is true with reference to the graph satisfying the sequencing constraints?</h3>
+  <label for='q66_A' id='label-q66-A'>
+    <input type='radio' name='q66' id='q66_A' value='A'>
+    All the sequencing constraints are satisfied.
+  </label>
+  <label for='q66_B' id='label-q66-B'>
+    <input type='radio' name='q66' id='q66_B' value='B'>
+    Constraints (1) and (2) are satisfied but (3) and (4) are not.
+  </label>
+  <label for='q66_C' id='label-q66-C'>
+    <input type='radio' name='q66' id='q66_C' value='C'>
+    Constraints (1), (2) and (3) are satisfied but (4) is not.
+  </label>
+  <label for='q66_D' id='label-q66-D'>
+    <input type='radio' name='q66' id='q66_D' value='D'>
+    All constraints are violated.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 67: State true or false: The path (1,4,5,7) satisfies constraint (4).</h3>
+  <label for='q67_A' id='label-q67-A'>
+    <input type='radio' name='q67' id='q67_A' value='A'>
+    True
+  </label>
+  <label for='q67_B' id='label-q67-B'>
+    <input type='radio' name='q67' id='q67_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 68: State true or false: The path (1,2,3,7) satisfies all the constraints.</h3>
+  <label for='q68_A' id='label-q68-A'>
+    <input type='radio' name='q68' id='q68_A' value='A'>
+    True.
+  </label>
+  <label for='q68_B' id='label-q68-B'>
+    <input type='radio' name='q68' id='q68_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 69: State yes or no: Does the path (1,4,6,7) violate any of the constraints?</h3>
+  <label for='q69_A' id='label-q69-A'>
+    <input type='radio' name='q69' id='q69_A' value='A'>
+    Yes
+  </label>
+  <label for='q69_B' id='label-q69-B'>
+    <input type='radio' name='q69' id='q69_B' value='B'>
+    No.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 70: State true or false: The path (1,4,6,4,6,7) satisfies all the constraints.</h3>
+  <label for='q70_A' id='label-q70-A'>
+    <input type='radio' name='q70' id='q70_A' value='A'>
+    Yes.
+  </label>
+  <label for='q70_B' id='label-q70-B'>
+    <input type='radio' name='q70' id='q70_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 71: State true or false: GACC subsumes predicate coverage.</h3>
+  <label for='q71_A' id='label-q71-A'>
+    <input type='radio' name='q71' id='q71_A' value='A'>
+    True
+  </label>
+  <label for='q71_B' id='label-q71-B'>
+    <input type='radio' name='q71' id='q71_B' value='B'>
+    False.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 72: When we test to check if a particular clause does not determine a predicate, which kind of coverage criteria are we considering?</h3>
+  <label for='q72_A' id='label-q72-A'>
+    <input type='radio' name='q72' id='q72_A' value='A'>
+    Active coverage criteria
+  </label>
+  <label for='q72_B' id='label-q72-B'>
+    <input type='radio' name='q72' id='q72_B' value='B'>
+    Inactive coverage criteria
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 73: Which of the following represents a correct order of subsumption amongst logic coverage criteria? In the options below, read → as ‘subsumes’.</h3>
+  <label for='q73_A' id='label-q73-A'>
+    <input type='radio' name='q73' id='q73_A' value='A'>
+    Correlated active clause coverage → Predicate coverage → Clause coverage
+  </label>
+  <label for='q73_B' id='label-q73-B'>
+    <input type='radio' name='q73' id='q73_B' value='B'>
+    Combinatorial coverage → Predicate coverage → Clause coverage
+  </label>
+  <label for='q73_C' id='label-q73-C'>
+    <input type='radio' name='q73' id='q73_C' value='C'>
+    Combinatorial coverage → Correlated active clause coverage → Predicate coverage
+  </label>
+  <label for='q73_D' id='label-q73-D'>
+    <input type='radio' name='q73' id='q73_D' value='D'>
+    General active clause coverage → Correlated active clause coverage → Clause coverage
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 74-80</h4>
+  <p>Consider the logical predicate `p = a ∨ (b ∧ c)`. Truth table for the predicate is given below with rows numbered from 1 to 8. T represents the Boolean value true and F represents the Boolean value false.</p>
+  <p><img src='wk5.png' alt='Quiz Image for question 0'></p>
+</div>
+
+<div class='question-block'>
+  <h3>Question 74: Which of the following represents pa, the conditions under which clause a determines p?</h3>
+  <label for='q74_A' id='label-q74-A'>
+    <input type='radio' name='q74' id='q74_A' value='A'>
+    b ∧ c
+  </label>
+  <label for='q74_B' id='label-q74-B'>
+    <input type='radio' name='q74' id='q74_B' value='B'>
+    b ∨ c
+  </label>
+  <label for='q74_C' id='label-q74-C'>
+    <input type='radio' name='q74' id='q74_C' value='C'>
+    ¬b ∨ ¬c
+  </label>
+  <label for='q74_D' id='label-q74-D'>
+    <input type='radio' name='q74' id='q74_D' value='D'>
+    ¬b ∧ ¬c
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 75: Which of the following represents pb, the conditions under which clause b determines p?</h3>
+  <label for='q75_A' id='label-q75-A'>
+    <input type='radio' name='q75' id='q75_A' value='A'>
+    a ∧ c
+  </label>
+  <label for='q75_B' id='label-q75-B'>
+    <input type='radio' name='q75' id='q75_B' value='B'>
+    a ∨ c
+  </label>
+  <label for='q75_C' id='label-q75-C'>
+    <input type='radio' name='q75' id='q75_C' value='C'>
+    ¬a ∧ c
+  </label>
+  <label for='q75_D' id='label-q75-D'>
+    <input type='radio' name='q75' id='q75_D' value='D'>
+    ¬a ∨ ¬c
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 76: Which of the following represents pc, the conditions under which clause c determines p?</h3>
+  <label for='q76_A' id='label-q76-A'>
+    <input type='radio' name='q76' id='q76_A' value='A'>
+    ¬a ∧ b
+  </label>
+  <label for='q76_B' id='label-q76-B'>
+    <input type='radio' name='q76' id='q76_B' value='B'>
+    ¬a ∨ b
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 77: Which of the following represents GACC pairs for clause a? (Numbers below represent row numbers from the truth table)</h3>
+  <label for='q77_A' id='label-q77-A'>
+    <input type='radio' name='q77' id='q77_A' value='A'>
+    {2,3,4} × {6,7,8}
+  </label>
+  <label for='q77_B' id='label-q77-B'>
+    <input type='radio' name='q77' id='q77_B' value='B'>
+    {1,3,4} × {5,6,7}
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 78: State true or false: GACC pairs for clauses b and c are the same.</h3>
+  <label for='q78_A' id='label-q78-A'>
+    <input type='radio' name='q78' id='q78_A' value='A'>
+    True
+  </label>
+  <label for='q78_B' id='label-q78-B'>
+    <input type='radio' name='q78' id='q78_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 79: The set {(2,6),(3,7),(4,8)} is the set of RACC pairs for which clause?</h3>
+  <label for='q79_A' id='label-q79-A'>
+    <input type='radio' name='q79' id='q79_A' value='A'>
+    Clause a
+  </label>
+  <label for='q79_B' id='label-q79-B'>
+    <input type='radio' name='q79' id='q79_B' value='B'>
+    Clause b
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 80: State true or false: CACC pairs for clauses a, b and c are different from GACC pairs for these clauses.</h3>
+  <label for='q80_A' id='label-q80-A'>
+    <input type='radio' name='q80' id='q80_A' value='A'>
+    True
+  </label>
+  <label for='q80_B' id='label-q80-B'>
+    <input type='radio' name='q80' id='q80_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 81: Where do logical predicates occur in finite state machines?</h3>
+  <label for='q81_A' id='label-q81-A'>
+    <input type='radio' name='q81' id='q81_A' value='A'>
+    They occur in the specification of finite state machines.
+  </label>
+  <label for='q81_B' id='label-q81-B'>
+    <input type='radio' name='q81' id='q81_B' value='B'>
+    They occur at decision points in finite state machines.
+  </label>
+  <label for='q81_C' id='label-q81-C'>
+    <input type='radio' name='q81' id='q81_C' value='C'>
+    They occur as guards in transitions of finite state machines.
+  </label>
+  <label for='q81_D' id='label-q81-D'>
+    <input type='radio' name='q81' id='q81_D' value='D'>
+    They occur in the nodes of finite state machines.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 82: How many test cases will be needed to achieve predicate coverage over a predicate with n clauses?</h3>
+  <label for='q82_A' id='label-q82-A'>
+    <input type='radio' name='q82' id='q82_A' value='A'>
+    Two
+  </label>
+  <label for='q82_B' id='label-q82-B'>
+    <input type='radio' name='q82' id='q82_B' value='B'>
+    n
+  </label>
+  <label for='q82_C' id='label-q82-C'>
+    <input type='radio' name='q82' id='q82_C' value='C'>
+    n + 1
+  </label>
+  <label for='q82_D' id='label-q82-D'>
+    <input type='radio' name='q82' id='q82_D' value='D'>
+    2n
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 83: State yes or no: If a specification predicate is in Conjunctive Normal Form (CNF) then, a major clause can be made active by making all other clauses true.</h3>
+  <label for='q83_A' id='label-q83-A'>
+    <input type='radio' name='q83' id='q83_A' value='A'>
+    Yes
+  </label>
+  <label for='q83_B' id='label-q83-B'>
+    <input type='radio' name='q83' id='q83_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 84: While applying logic-based testing to test source code, is it true that the predicates can be taken exactly as they occur in code always?</h3>
+  <label for='q84_A' id='label-q84-A'>
+    <input type='radio' name='q84' id='q84_A' value='A'>
+    Yes, the predicates can be considered exactly as they occur in code.
+  </label>
+  <label for='q84_B' id='label-q84-B'>
+    <input type='radio' name='q84' id='q84_B' value='B'>
+    No, sometimes we have to add extra clauses to the predicate.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 85: How do logical predicates occur in finite state machines?</h3>
+  <label for='q85_A' id='label-q85-A'>
+    <input type='radio' name='q85' id='q85_A' value='A'>
+    The logical predicates occur as a part of the states of the finite state machines.
+  </label>
+  <label for='q85_B' id='label-q85-B'>
+    <input type='radio' name='q85' id='q85_B' value='B'>
+    The logical predicates occur as guards in the transitions of the finite state machines.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 86: In a requirements specification document, where do logical predicates occur?</h3>
+  <label for='q86_A' id='label-q86-A'>
+    <input type='radio' name='q86' id='q86_A' value='A'>
+    They occur directly as a part of the requirements.
+  </label>
+  <label for='q86_B' id='label-q86-B'>
+    <input type='radio' name='q86' id='q86_B' value='B'>
+    They occur as pre-conditions, invariants and post-conditions in the requirements.
+  </label>
+  <label for='q86_C' id='label-q86-C'>
+    <input type='radio' name='q86' id='q86_C' value='C'>
+    All the conditions in requirements can be translated into predicates.
+  </label>
+  <label for='q86_D' id='label-q86-D'>
+    <input type='radio' name='q86' id='q86_D' value='D'>
+    Logical predicates cannot be found in requirements.
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 87-93</h4>
+  <p>Consider the following method `twoPred()` with input parameters `x` and `y`:</p>
+<pre><code>
+public String twoPred(int x, int y)
+{
+    boolean z;
+    if (x &lt; y)
+        z = true;
+    else
+        z = false;
+    if (z &amp;&amp; x+y == 10)
+        return z;
+    else
+        return z-1;
+}
+</code></pre>
+</div>
+
+<div class='question-block'>
+  <h3>Question 87: State true or false: The internal variable z in the second predicate needs to be re-written in terms of the input parameters x and y.</h3>
+  <label for='q87_A' id='label-q87-A'>
+    <input type='radio' name='q87' id='q87_A' value='A'>
+    True
+  </label>
+  <label for='q87_B' id='label-q87-B'>
+    <input type='radio' name='q87' id='q87_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 88: Is it true that predicate coverage for the first predicate will also subsume predicate coverage for the second predicate?</h3>
+  <label for='q88_A' id='label-q88-A'>
+    <input type='radio' name='q88' id='q88_A' value='A'>
+    True
+  </label>
+  <label for='q88_B' id='label-q88-B'>
+    <input type='radio' name='q88' id='q88_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 89: How many test cases will be needed for clause coverage for the second predicate if we explicitly count the true and false values for each clause?</h3>
+  <label for='q89_A' id='label-q89-A'>
+    <input type='radio' name='q89' id='q89_A' value='A'>
+    Two test cases
+  </label>
+  <label for='q89_B' id='label-q89-B'>
+    <input type='radio' name='q89' id='q89_B' value='B'>
+    Four test cases
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 90: State true or false: The set of test case inputs `{(x=5,y=3),(x=4,y=6),(x=5,y=6)}` will satisfy clause coverage for the second predicate.</h3>
+  <label for='q90_A' id='label-q90-A'>
+    <input type='radio' name='q90' id='q90_A' value='A'>
+    True
+  </label>
+  <label for='q90_B' id='label-q90-B'>
+    <input type='radio' name='q90' id='q90_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 91: State yes or no: The set of test case inputs `{(x=5,y=3),(x=4,y=6),(x=5,y=6)}` will also satisfy predicate coverage for the first and second predicates.</h3>
+  <label for='q91_A' id='label-q91-A'>
+    <input type='radio' name='q91' id='q91_A' value='A'>
+    Yes
+  </label>
+  <label for='q91_B' id='label-q91-B'>
+    <input type='radio' name='q91' id='q91_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 92: How many test cases are needed for satisfying RACC for all the clauses for the second predicate?</h3>
+  <label for='q92_A' id='label-q92-A'>
+    <input type='radio' name='q92' id='q92_A' value='A'>
+    Only one test case
+  </label>
+  <label for='q92_B' id='label-q92-B'>
+    <input type='radio' name='q92' id='q92_B' value='B'>
+    Two test cases
+  </label>
+  <label for='q92_C' id='label-q92-C'>
+    <input type='radio' name='q92' id='q92_C' value='C'>
+    Three test cases
+  </label>
+  <label for='q92_D' id='label-q92-D'>
+    <input type='radio' name='q92' id='q92_D' value='D'>
+    Five test cases
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 93: State true or false: The set of test case inputs `{(x=4,y=6),(x=6,y=4),(x=4,y=5)}` satisfy RACC for the second predicate.</h3>
+  <label for='q93_A' id='label-q93-A'>
+    <input type='radio' name='q93' id='q93_A' value='A'>
+    True
+  </label>
+  <label for='q93_B' id='label-q93-B'>
+    <input type='radio' name='q93' id='q93_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 94: State true or false: In functional testing, decision tables handle multiple inputs by considering different combinations of equivalence classes, with conditions handling the combinations.</h3>
+  <label for='q94_A' id='label-q94-A'>
+    <input type='radio' name='q94' id='q94_A' value='A'>
+    True
+  </label>
+  <label for='q94_B' id='label-q94-B'>
+    <input type='radio' name='q94' id='q94_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 95: In equivalence class based testing, how does each partition help in testing?</h3>
+  <label for='q95_A' id='label-q95-A'>
+    <input type='radio' name='q95' id='q95_A' value='A'>
+    When the program under test is run on any input from each partition, it will produce the same output.
+  </label>
+  <label for='q95_B' id='label-q95-B'>
+    <input type='radio' name='q95' id='q95_B' value='B'>
+    Any input from each partition is good enough to test the program, it serves as a good source for selecting inputs.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 96: In boundary value analysis, if the partition of inputs specifies an ordered set, which of the following best describes the guidelines to be used to choose test case inputs?</h3>
+  <label for='q96_A' id='label-q96-A'>
+    <input type='radio' name='q96' id='q96_A' value='A'>
+    Construct test cases by specifying boundary points.
+  </label>
+  <label for='q96_B' id='label-q96-B'>
+    <input type='radio' name='q96' id='q96_B' value='B'>
+    Construct test cases at the boundary of each partition.
+  </label>
+  <label for='q96_C' id='label-q96-C'>
+    <input type='radio' name='q96' id='q96_C' value='C'>
+    Construct test cases by choosing minimum and maximum values.
+  </label>
+  <label for='q96_D' id='label-q96-D'>
+    <input type='radio' name='q96' id='q96_D' value='D'>
+    Construct test cases by choosing the first and the last elements of the set.
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 97-98</h4>
+  <p>Consider the function `NextDate`, which takes as input a valid date in `mm/dd/yyyy` format and computes the date of the next day.</p>
+</div>
+
+<div class='question-block'>
+  <h3>Question 97: What are the variables involved in the NextDate function input?</h3>
+  <label for='q97_A' id='label-q97-A'>
+    <input type='radio' name='q97' id='q97_A' value='A'>
+    Month, day and year.
+  </label>
+  <label for='q97_B' id='label-q97-B'>
+    <input type='radio' name='q97' id='q97_B' value='B'>
+    Date containing month, day and year.
+  </label>
+  <label for='q97_C' id='label-q97-C'>
+    <input type='radio' name='q97' id='q97_C' value='C'>
+    Today’s date.
+  </label>
+  <label for='q97_D' id='label-q97-D'>
+    <input type='radio' name='q97' id='q97_D' value='D'>
+    Range of dates.
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 98: State true or false: The partition `(1){month: month has 30 days}, (2){month: month has 31 days}, (3){month: month is February}` is a valid partition for month as a part of input to NextDate function?</h3>
+  <label for='q98_A' id='label-q98-A'>
+    <input type='radio' name='q98' id='q98_A' value='A'>
+    True
+  </label>
+  <label for='q98_B' id='label-q98-B'>
+    <input type='radio' name='q98' id='q98_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 99-103</h4>
+  <p>Consider the following requirements for a college job placement process:</p>
+  <p>- CGPA ≥ 8 → eligible for companies offering ≥ INR 20,00,000 per annum.</p>
+  <p>- CGPA between 6 and 8 → eligible for companies offering < INR 20,00,000 per annum.</p>
+  <p>- If no companies offer ≥ INR 20,00,000, CGPA ≥ 8 students also appear in lower salary offers.</p>
+  <p>- CGPA < 6 → not assisted for placements.</p>
+</div>
+
+<div class='question-block'>
+  <h3>Question 99: How many partitions will be there for the input CGPA if we consider only valid inputs?</h3>
+  <label for='q99_A' id='label-q99-A'>
+    <input type='radio' name='q99' id='q99_A' value='A'>
+    Three partitions
+  </label>
+  <label for='q99_B' id='label-q99-B'>
+    <input type='radio' name='q99' id='q99_B' value='B'>
+    Five partitions
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 100: Do the test inputs `{CGPA = 8, CGPA = 9, CGPA = 9.5}` belong to the same partition?</h3>
+  <label for='q100_A' id='label-q100-A'>
+    <input type='radio' name='q100' id='q100_A' value='A'>
+    Yes, they belong to the same partition
+  </label>
+  <label for='q100_B' id='label-q100-B'>
+    <input type='radio' name='q100' id='q100_B' value='B'>
+    No, they belong to different partitions
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 101: What is the expected output for the test case containing CGPA = 8 as input?</h3>
+  <label for='q101_A' id='label-q101-A'>
+    <input type='radio' name='q101' id='q101_A' value='A'>
+    Eligibility for offers above INR 20,00,000 per annum and if no such offers exist, eligible for all offers
+  </label>
+  <label for='q101_B' id='label-q101-B'>
+    <input type='radio' name='q101' id='q101_B' value='B'>
+    Only eligible for offers above INR 20,00,000 per annum
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 102: State true or false: A student has a CGPA of 6 and will be eligible to appear for placements for companies with a salary offer of INR 20,00,000/=.</h3>
+  <label for='q102_A' id='label-q102-A'>
+    <input type='radio' name='q102' id='q102_A' value='A'>
+    True
+  </label>
+  <label for='q102_B' id='label-q102-B'>
+    <input type='radio' name='q102' id='q102_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 103: Which of the following is a correct partitioning of inputs?</h3>
+  <label for='q103_A' id='label-q103-A'>
+    <input type='radio' name='q103' id='q103_A' value='A'>
+    Salary range: 1. INR x to INR 20,00,000, 2. INR 20,00,001 to INR y where x is minimum and y is maximum
+  </label>
+  <label for='q103_B' id='label-q103-B'>
+    <input type='radio' name='q103' id='q103_B' value='B'>
+    Salary range: 1. INR 0 to INR 20,00,000, 2. ≥ INR 20,00,000
+  </label>
+  <label for='q103_C' id='label-q103-C'>
+    <input type='radio' name='q103' id='q103_C' value='C'>
+    Both the options above can be valid partitions
+  </label>
+  <label for='q103_D' id='label-q103-D'>
+    <input type='radio' name='q103' id='q103_D' value='D'>
+    None of the options above are valid partitions
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 104: Amongst the various coverage criteria for input space partitioning, which is the most expressive and which is the least expressive?</h3>
+  <label for='q104_A' id='label-q104-A'>
+    <input type='radio' name='q104' id='q104_A' value='A'>
+    All combinations coverage is the least expressive and multiple base choice coverage is the most expressive
+  </label>
+  <label for='q104_B' id='label-q104-B'>
+    <input type='radio' name='q104' id='q104_B' value='B'>
+    All combinations coverage is the most expressive and multiple base choice coverage is the least expressive
+  </label>
+  <label for='q104_C' id='label-q104-C'>
+    <input type='radio' name='q104' id='q104_C' value='C'>
+    Each choice coverage is the most expressive and all combinations coverage is the least expressive
+  </label>
+  <label for='q104_D' id='label-q104-D'>
+    <input type='radio' name='q104' id='q104_D' value='D'>
+    Each choice coverage is the least expressive and all combinations coverage is the most expressive
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 105: State true or false: Multiple base choice coverage subsumes pair-wise coverage.</h3>
+  <label for='q105_A' id='label-q105-A'>
+    <input type='radio' name='q105' id='q105_A' value='A'>
+    True
+  </label>
+  <label for='q105_B' id='label-q105-B'>
+    <input type='radio' name='q105' id='q105_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 106: Which criterion below will have a maximum number of test cases?</h3>
+  <label for='q106_A' id='label-q106-A'>
+    <input type='radio' name='q106' id='q106_A' value='A'>
+    Each choice criterion
+  </label>
+  <label for='q106_B' id='label-q106-B'>
+    <input type='radio' name='q106' id='q106_B' value='B'>
+    All combinations criterion
+  </label>
+  <label for='q106_C' id='label-q106-C'>
+    <input type='radio' name='q106' id='q106_C' value='C'>
+    Base choice coverage criterion
+  </label>
+  <label for='q106_D' id='label-q106-D'>
+    <input type='radio' name='q106' id='q106_D' value='D'>
+    Multiple base choice coverage criterion
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 107: When does T-wise coverage criterion become the same as all combinations coverage criterion?</h3>
+  <label for='q107_A' id='label-q107-A'>
+    <input type='radio' name='q107' id='q107_A' value='A'>
+    When the value for T is the maximum value in a partition
+  </label>
+  <label for='q107_B' id='label-q107-B'>
+    <input type='radio' name='q107' id='q107_B' value='B'>
+    When the value for T is equal to the number of partitions
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 108: State yes or no: While partitioning the inputs using equivalence partitioning, both valid and invalid inputs need to be considered.</h3>
+  <label for='q108_A' id='label-q108-A'>
+    <input type='radio' name='q108' id='q108_A' value='A'>
+    Yes
+  </label>
+  <label for='q108_B' id='label-q108-B'>
+    <input type='radio' name='q108' id='q108_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 109: State true or false: Regular expressions and context free grammars are used to determine how characters form tokens and tokens form words in the syntax of a programming language.</h3>
+  <label for='q109_A' id='label-q109-A'>
+    <input type='radio' name='q109' id='q109_A' value='A'>
+    True
+  </label>
+  <label for='q109_B' id='label-q109-B'>
+    <input type='radio' name='q109' id='q109_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 110: In the list of mutation operators for source code, the Boolean constants True and False can be used to replace which of the following operators?</h3>
+  <label for='q110_A' id='label-q110-A'>
+    <input type='radio' name='q110' id='q110_A' value='A'>
+    They can replace logical operators only
+  </label>
+  <label for='q110_B' id='label-q110-B'>
+    <input type='radio' name='q110' id='q110_B' value='B'>
+    They can replace relational operators only
+  </label>
+  <label for='q110_C' id='label-q110-C'>
+    <input type='radio' name='q110' id='q110_C' value='C'>
+    They can replace conditional operators only
+  </label>
+  <label for='q110_D' id='label-q110-D'>
+    <input type='radio' name='q110' id='q110_D' value='D'>
+    They can replace both logical and relational operators
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 111: When is a mutant said to be a trivial mutant?</h3>
+  <label for='q111_A' id='label-q111-A'>
+    <input type='radio' name='q111' id='q111_A' value='A'>
+    A mutant is trivial if it is functionally equivalent to its ground string
+  </label>
+  <label for='q111_B' id='label-q111-B'>
+    <input type='radio' name='q111' id='q111_B' value='B'>
+    A mutant is trivial if it can be killed by almost any test case
+  </label>
+  <label for='q111_C' id='label-q111-C'>
+    <input type='radio' name='q111' id='q111_C' value='C'>
+    A mutant is trivial if it is invalid
+  </label>
+  <label for='q111_D' id='label-q111-D'>
+    <input type='radio' name='q111' id='q111_D' value='D'>
+    A mutant is trivial if all logical and relational operators are replaced by the constant True
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 112: State true or false: Strongly killing a mutant and weakly killing a mutant are the same in mutation testing applied to test a method.</h3>
+  <label for='q112_A' id='label-q112-A'>
+    <input type='radio' name='q112' id='q112_A' value='A'>
+    True
+  </label>
+  <label for='q112_B' id='label-q112-B'>
+    <input type='radio' name='q112' id='q112_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 113: State true or false: Mutation testing subsumes combinatorial logic coverage criterion.</h3>
+  <label for='q113_A' id='label-q113-A'>
+    <input type='radio' name='q113' id='q113_A' value='A'>
+    True
+  </label>
+  <label for='q113_B' id='label-q113-B'>
+    <input type='radio' name='q113' id='q113_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 114: Consider the regular expression (a+b)⋅(a+b)∗ over the alphabet Σ={a,b}. Which of the following represents a list of words generated by this regular expression?</h3>
+  <label for='q114_A' id='label-q114-A'>
+    <input type='radio' name='q114' id='q114_A' value='A'>
+    ab, a, aab
+  </label>
+  <label for='q114_B' id='label-q114-B'>
+    <input type='radio' name='q114' id='q114_B' value='B'>
+    abab, babab
+  </label>
+  <label for='q114_C' id='label-q114-C'>
+    <input type='radio' name='q114' id='q114_C' value='C'>
+    aaa, bbb
+  </label>
+  <label for='q114_D' id='label-q114-D'>
+    <input type='radio' name='q114' id='q114_D' value='D'>
+    All of the above
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 115: For the same regular expression (a+b)⋅(a+b)∗, which of the following represents the language corresponding to the regular expression?</h3>
+  <label for='q115_A' id='label-q115-A'>
+    <input type='radio' name='q115' id='q115_A' value='A'>
+    The language is the set of all words over a and b that have at least one a and at least one b in them
+  </label>
+  <label for='q115_B' id='label-q115-B'>
+    <input type='radio' name='q115' id='q115_B' value='B'>
+    The language is the set of all words over a and b that have at least one a or at least one b in them
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 116: While parsing a program to extract syntactic information, which of the following defines how characters form tokens?</h3>
+  <label for='q116_A' id='label-q116-A'>
+    <input type='radio' name='q116' id='q116_A' value='A'>
+    Regular expressions
+  </label>
+  <label for='q116_B' id='label-q116-B'>
+    <input type='radio' name='q116' id='q116_B' value='B'>
+    Context-free grammars
+  </label>
+  <label for='q116_C' id='label-q116-C'>
+    <input type='radio' name='q116' id='q116_C' value='C'>
+    Context-sensitive grammars
+  </label>
+  <label for='q116_D' id='label-q116-D'>
+    <input type='radio' name='q116' id='q116_D' value='D'>
+    The normal form of the grammar
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 117: Consider the context-free grammar G=(N,T,P,S) where N={S,X}, T={a,b}, P={S→aXb, X→ab}. Which of the following is the language generated by this grammar?</h3>
+  <label for='q117_A' id='label-q117-A'>
+    <input type='radio' name='q117' id='q117_A' value='A'>
+    The language generated by G is {w | w = aabb}
+  </label>
+  <label for='q117_B' id='label-q117-B'>
+    <input type='radio' name='q117' id='q117_B' value='B'>
+    The language generated by G is {w | w is of the form aⁿbⁿ, n ≥ 1}
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 118: State yes or no: Is the ground string in mutation testing the same as the program under test?</h3>
+  <label for='q118_A' id='label-q118-A'>
+    <input type='radio' name='q118' id='q118_A' value='A'>
+    Yes
+  </label>
+  <label for='q118_B' id='label-q118-B'>
+    <input type='radio' name='q118' id='q118_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 119: Which of the following is a mutant that can be killed by any test case?</h3>
+  <label for='q119_A' id='label-q119-A'>
+    <input type='radio' name='q119' id='q119_A' value='A'>
+    Dead mutant
+  </label>
+  <label for='q119_B' id='label-q119-B'>
+    <input type='radio' name='q119' id='q119_B' value='B'>
+    Equivalent mutant
+  </label>
+  <label for='q119_C' id='label-q119-C'>
+    <input type='radio' name='q119' id='q119_C' value='C'>
+    Trivial mutant
+  </label>
+  <label for='q119_D' id='label-q119-D'>
+    <input type='radio' name='q119' id='q119_D' value='D'>
+    Idempotent mutant
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 120: Suppose a decision statement like `if (x &lt; 0 &amp;&amp; z == 5)` is mutated to `if (x &gt; 0 &amp;&amp; z == 5)`. This is an example of which kind of mutation operator?</h3>
+  <label for='q120_A' id='label-q120-A'>
+    <input type='radio' name='q120' id='q120_A' value='A'>
+    Replacing a logical operator
+  </label>
+  <label for='q120_B' id='label-q120-B'>
+    <input type='radio' name='q120' id='q120_B' value='B'>
+    Replacing a relational operator
+  </label>
+  <label for='q120_C' id='label-q120-C'>
+    <input type='radio' name='q120' id='q120_C' value='C'>
+    Replacing a decision statement
+  </label>
+  <label for='q120_D' id='label-q120-D'>
+    <input type='radio' name='q120' id='q120_D' value='D'>
+    Replacing a condition statement
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 121: As per the lectures, replacing a particular assignment statement with a statement like `failOnZero()` is an example of a mutation operator applied at which level in testing?</h3>
+  <label for='q121_A' id='label-q121-A'>
+    <input type='radio' name='q121' id='q121_A' value='A'>
+    Program level
+  </label>
+  <label for='q121_B' id='label-q121-B'>
+    <input type='radio' name='q121' id='q121_B' value='B'>
+    Integration level
+  </label>
+  <label for='q121_C' id='label-q121-C'>
+    <input type='radio' name='q121' id='q121_C' value='C'>
+    Statement level
+  </label>
+  <label for='q121_D' id='label-q121-D'>
+    <input type='radio' name='q121' id='q121_D' value='D'>
+    Debugging level
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 122: A programmer decides to apply two or three mutation operators together to increase the chances of finding many errors. Is this considered a useful strategy in mutation testing?</h3>
+  <label for='q122_A' id='label-q122-A'>
+    <input type='radio' name='q122' id='q122_A' value='A'>
+    Yes, it will find many errors early
+  </label>
+  <label for='q122_B' id='label-q122-B'>
+    <input type='radio' name='q122' id='q122_B' value='B'>
+    No, mutation operators work best when applied one at a time
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 123: State true or false: Mutation testing can be used to show that a program behaves identically when a particular operation is replaced or removed.</h3>
+  <label for='q123_A' id='label-q123-A'>
+    <input type='radio' name='q123' id='q123_A' value='A'>
+    True
+  </label>
+  <label for='q123_B' id='label-q123-B'>
+    <input type='radio' name='q123' id='q123_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 124: While applying the mutation operator that deletes a method call, how is the value returned by the deleted method passed to the caller method?</h3>
+  <label for='q124_A' id='label-q124-A'>
+    <input type='radio' name='q124' id='q124_A' value='A'>
+    The method itself is deleted, so the call should also be deleted
+  </label>
+  <label for='q124_B' id='label-q124-B'>
+    <input type='radio' name='q124' id='q124_B' value='B'>
+    The value returned by the deleted method is replaced with a suitable expression in the caller
+  </label>
+  <label for='q124_C' id='label-q124-C'>
+    <input type='radio' name='q124' id='q124_C' value='C'>
+    The value returned by the deleted method is replaced with a fixed, constant value
+  </label>
+  <label for='q124_D' id='label-q124-D'>
+    <input type='radio' name='q124' id='q124_D' value='D'>
+    A message is sent to the caller indicating that there is no value to be returned as the method is deleted
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 125: When mutation testing is applied for inputs to programs, which of the following software artifacts are mutated?</h3>
+  <label for='q125_A' id='label-q125-A'>
+    <input type='radio' name='q125' id='q125_A' value='A'>
+    Inputs are mutated
+  </label>
+  <label for='q125_B' id='label-q125-B'>
+    <input type='radio' name='q125' id='q125_B' value='B'>
+    The program or the ground string is mutated
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 126: State true or false: The mutation operators overriding method moving and overriding method deletion will cause references to the method on which it is applied to use the parent’s version.</h3>
+  <label for='q126_A' id='label-q126-A'>
+    <input type='radio' name='q126' id='q126_A' value='A'>
+    True
+  </label>
+  <label for='q126_B' id='label-q126-B'>
+    <input type='radio' name='q126' id='q126_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 127: How is overloading different from overriding in object-oriented programming?</h3>
+  <label for='q127_A' id='label-q127-A'>
+    <input type='radio' name='q127' id='q127_A' value='A'>
+    Overloading occurs between two methods in the same class and overriding occurs between methods in a class and one of its descendants
+  </label>
+  <label for='q127_B' id='label-q127-B'>
+    <input type='radio' name='q127' id='q127_B' value='B'>
+    Overloading occurs between a method in a class and one of its descendants and overriding occurs between two methods in the same class
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 128: Which of the following represents use of `super()` keyword?</h3>
+  <label for='q128_A' id='label-q128-A'>
+    <input type='radio' name='q128' id='q128_A' value='A'>
+    Sub-classes can explicitly use their parent’s variables and methods using the keyword super()
+  </label>
+  <label for='q128_B' id='label-q128-B'>
+    <input type='radio' name='q128' id='q128_B' value='B'>
+    Sub-classes can use their own variables and methods and not the inherited ones using the keyword super()
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 129: While applying the mutation operator that deletes a method call, how is the value to be returned by the deleted method passed back to the caller method?</h3>
+  <label for='q129_A' id='label-q129-A'>
+    <input type='radio' name='q129' id='q129_A' value='A'>
+    The method itself is deleted, so the call should also be deleted in the caller method
+  </label>
+  <label for='q129_B' id='label-q129-B'>
+    <input type='radio' name='q129' id='q129_B' value='B'>
+    The value returned by the deleted method is replaced with a suitable statement in the caller
+  </label>
+  <label for='q129_C' id='label-q129-C'>
+    <input type='radio' name='q129' id='q129_C' value='C'>
+    A message is sent to the caller indicating that there is no value to be returned as the method is deleted
+  </label>
+  <label for='q129_D' id='label-q129-D'>
+    <input type='radio' name='q129' id='q129_D' value='D'>
+    The value returned by the deleted method is replaced with a fixed, constant value
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 130: When mutation testing is applied as a black-box testing technique to mutate the inputs, which of the following statements hold true?</h3>
+  <label for='q130_A' id='label-q130-A'>
+    <input type='radio' name='q130' id='q130_A' value='A'>
+    Both the inputs and the program which is accepting the inputs have to be mutated with one mutation operator
+  </label>
+  <label for='q130_B' id='label-q130-B'>
+    <input type='radio' name='q130' id='q130_B' value='B'>
+    Only the inputs are mutated, the program which is accepting the inputs remains the same
+  </label>
+  <label for='q130_C' id='label-q130-C'>
+    <input type='radio' name='q130' id='q130_C' value='C'>
+    The inputs are not mutated, the program is mutated at a random statement
+  </label>
+  <label for='q130_D' id='label-q130-D'>
+    <input type='radio' name='q130' id='q130_D' value='D'>
+    The inputs are not mutated, the program is mutated at one of the statements that process the inputs
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 131: When we change a method call `isDivisible(a,b)` to `isDivisible(b,a)`, it is an example of which mutation operator?</h3>
+  <label for='q131_A' id='label-q131-A'>
+    <input type='radio' name='q131' id='q131_A' value='A'>
+    Integration parameter variable replacement
+  </label>
+  <label for='q131_B' id='label-q131-B'>
+    <input type='radio' name='q131' id='q131_B' value='B'>
+    Integration parameter variable exchange
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 132: State yes or no: The programming language Java does not support multiple class inheritance and hence each class only has a single parent.</h3>
+  <label for='q132_A' id='label-q132-A'>
+    <input type='radio' name='q132' id='q132_A' value='A'>
+    Yes
+  </label>
+  <label for='q132_B' id='label-q132-B'>
+    <input type='radio' name='q132' id='q132_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 133: Which of the following integration mutation operators represents changing the order of arguments in method invocations to be the same as that of another overloading method, if one exists?</h3>
+  <label for='q133_A' id='label-q133-A'>
+    <input type='radio' name='q133' id='q133_A' value='A'>
+    Overloading method change
+  </label>
+  <label for='q133_B' id='label-q133-B'>
+    <input type='radio' name='q133' id='q133_B' value='B'>
+    Argument number change
+  </label>
+  <label for='q133_C' id='label-q133-C'>
+    <input type='radio' name='q133' id='q133_C' value='C'>
+    Argument order change
+  </label>
+  <label for='q133_D' id='label-q133-D'>
+    <input type='radio' name='q133' id='q133_D' value='D'>
+    Reference type change
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 134: State true or false: While testing inputs using mutation testing, the inputs always have to adhere to their underlying syntax.</h3>
+  <label for='q134_A' id='label-q134-A'>
+    <input type='radio' name='q134' id='q134_A' value='A'>
+    True
+  </label>
+  <label for='q134_B' id='label-q134-B'>
+    <input type='radio' name='q134' id='q134_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 135: Towards ensuring that mutation testing subsumes edge coverage, which of the following mutation operators are used?</h3>
+  <label for='q135_A' id='label-q135-A'>
+    <input type='radio' name='q135' id='q135_A' value='A'>
+    Relational operator replacement
+  </label>
+  <label for='q135_B' id='label-q135-B'>
+    <input type='radio' name='q135' id='q135_B' value='B'>
+    Statement replacement
+  </label>
+  <label for='q135_C' id='label-q135-C'>
+    <input type='radio' name='q135' id='q135_C' value='C'>
+    Logical operator replacement
+  </label>
+  <label for='q135_D' id='label-q135-D'>
+    <input type='radio' name='q135' id='q135_D' value='D'>
+    Condition statement replacement
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 136: Which statements are true with reference to mutation testing subsuming all-defs coverage?</h3>
+  <label for='q136_A' id='label-q136-A'>
+    <input type='radio' name='q136' id='q136_A' value='A'>
+    We need to consider strong mutation to be applied to the statements that contain variable definitions
+  </label>
+  <label for='q136_B' id='label-q136-B'>
+    <input type='radio' name='q136' id='q136_B' value='B'>
+    Both weak and strong mutation on the statements that contain variable definitions will work
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 137: If a descendent class does not override any inherited method and there is no polymorphic behaviour, then which fault/anomaly does it represent?</h3>
+  <label for='q137_A' id='label-q137-A'>
+    <input type='radio' name='q137' id='q137_A' value='A'>
+    State definition anomaly
+  </label>
+  <label for='q137_B' id='label-q137-B'>
+    <input type='radio' name='q137' id='q137_B' value='B'>
+    Polymorphic behaviour anomaly
+  </label>
+  <label for='q137_C' id='label-q137-C'>
+    <input type='radio' name='q137' id='q137_C' value='C'>
+    Inconsistent type use fault
+  </label>
+  <label for='q137_D' id='label-q137-D'>
+    <input type='radio' name='q137' id='q137_D' value='D'>
+    State visibility anomaly
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 138: Do the coverage criteria “All-Coupling-Sequences” and “All-Coupling-Defs-Uses” consider polymorphism?</h3>
+  <label for='q138_A' id='label-q138-A'>
+    <input type='radio' name='q138' id='q138_A' value='A'>
+    These two criteria consider only inheritance and not polymorphism
+  </label>
+  <label for='q138_B' id='label-q138-B'>
+    <input type='radio' name='q138' id='q138_B' value='B'>
+    These two criteria also consider polymorphism
+  </label>
+  <label for='q138_C' id='label-q138-C'>
+    <input type='radio' name='q138' id='q138_C' value='C'>
+    Both All-Coupling-Sequences (ACS) and All-Coupling-Defs-and-Uses (ACDU) do not consider inheritance and polymorphism
+  </label>
+  <label for='q138_D' id='label-q138-D'>
+    <input type='radio' name='q138' id='q138_D' value='D'>
+    Both All-Coupling-Sequences (ACS) and All-Coupling-Defs-and-Uses (ACDU) consider inheritance and polymorphism
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 139: Which of the following lists different kinds of client side testing for web applications?</h3>
+  <label for='q139_A' id='label-q139-A'>
+    <input type='radio' name='q139' id='q139_A' value='A'>
+    Testing based on user history that is logged at the server
+  </label>
+  <label for='q139_B' id='label-q139-B'>
+    <input type='radio' name='q139' id='q139_B' value='B'>
+    Testing based on screens that a user passes through while navigating
+  </label>
+  <label for='q139_C' id='label-q139-C'>
+    <input type='radio' name='q139' id='q139_C' value='C'>
+    Testing based on clients bypassing different kinds of server validation
+  </label>
+  <label for='q139_D' id='label-q139-D'>
+    <input type='radio' name='q139' id='q139_D' value='D'>
+    Testing based on user session data and on bypassing client side validation
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 140: Why are control flow graphs not suitable for web applications testing?</h3>
+  <label for='q140_A' id='label-q140-A'>
+    <input type='radio' name='q140' id='q140_A' value='A'>
+    It is not clear whether to consider models for client or server
+  </label>
+  <label for='q140_B' id='label-q140-B'>
+    <input type='radio' name='q140' id='q140_B' value='B'>
+    They are static models and do not represent dynamic flow of control
+  </label>
+  <label for='q140_C' id='label-q140-C'>
+    <input type='radio' name='q140' id='q140_C' value='C'>
+    There are no control flow graph models in code for web applications
+  </label>
+  <label for='q140_D' id='label-q140-D'>
+    <input type='radio' name='q140' id='q140_D' value='D'>
+    Just control flow is not enough, we need to consider data flow also
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 141: When a user of a web application presses the “Refresh” button due to delay in loading a page, what kind of transition does it cause in the underlying component interaction model?</h3>
+  <label for='q141_A' id='label-q141-A'>
+    <input type='radio' name='q141' id='q141_A' value='A'>
+    It causes a simple link transition
+  </label>
+  <label for='q141_B' id='label-q141-B'>
+    <input type='radio' name='q141' id='q141_B' value='B'>
+    It causes a redirect transition
+  </label>
+  <label for='q141_C' id='label-q141-C'>
+    <input type='radio' name='q141' id='q141_C' value='C'>
+    It causes an operational transition
+  </label>
+  <label for='q141_D' id='label-q141-D'>
+    <input type='radio' name='q141' id='q141_D' value='D'>
+    It causes a reload transition
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 142: Which of the following features of static websites are tested using graphs?</h3>
+  <label for='q142_A' id='label-q142-A'>
+    <input type='radio' name='q142' id='q142_A' value='A'>
+    We check if all the connections are valid and if there are any dead links
+  </label>
+  <label for='q142_B' id='label-q142-B'>
+    <input type='radio' name='q142' id='q142_B' value='B'>
+    We check if all the information given is correct in each of the linked web pages
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 143: While testing web applications, which of the following is true regarding client-side vs. server-side testing?</h3>
+  <label for='q143_A' id='label-q143-A'>
+    <input type='radio' name='q143' id='q143_A' value='A'>
+    Client and server are separated and testers typically don’t have access to the server code
+  </label>
+  <label for='q143_B' id='label-q143-B'>
+    <input type='radio' name='q143' id='q143_B' value='B'>
+    Testers have equal access to the client code and server code even though they are separated
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 144: State yes or no: It is possible to generate all the input screens that are passed to a web application.</h3>
+  <label for='q144_A' id='label-q144-A'>
+    <input type='radio' name='q144' id='q144_A' value='A'>
+    Yes
+  </label>
+  <label for='q144_B' id='label-q144-B'>
+    <input type='radio' name='q144' id='q144_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 145: Which of the following is a list of techniques that can be used to provide test values to a web application?</h3>
+  <label for='q145_A' id='label-q145-A'>
+    <input type='radio' name='q145' id='q145_A' value='A'>
+    Generate values automatically using an appropriate algorithm
+  </label>
+  <label for='q145_B' id='label-q145-B'>
+    <input type='radio' name='q145' id='q145_B' value='B'>
+    Request user to supply inputs
+  </label>
+  <label for='q145_C' id='label-q145-C'>
+    <input type='radio' name='q145' id='q145_C' value='C'>
+    Random choice, user session data, construct based on the domain of application
+  </label>
+  <label for='q145_D' id='label-q145-D'>
+    <input type='radio' name='q145' id='q145_D' value='D'>
+    Generate inputs randomly and then choose based on the application
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 146: Which of the following features can be checked using HTML without the need to write extra scripting constraints?</h3>
+  <label for='q146_A' id='label-q146-A'>
+    <input type='radio' name='q146' id='q146_A' value='A'>
+    Change of transfer mode, checking for length of input and checking against a list of pre-defined values
+  </label>
+  <label for='q146_B' id='label-q146-B'>
+    <input type='radio' name='q146' id='q146_B' value='B'>
+    Change of transfer mode and change of data type of input
+  </label>
+  <label for='q146_C' id='label-q146-C'>
+    <input type='radio' name='q146' id='q146_C' value='C'>
+    Checking of inter-dependency of input values
+  </label>
+  <label for='q146_D' id='label-q146-D'>
+    <input type='radio' name='q146' id='q146_D' value='D'>
+    Checking for length of input and also the data type
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 147: Is a control graph model useful for testing system level properties of web applications?</h3>
+  <label for='q147_A' id='label-q147-A'>
+    <input type='radio' name='q147' id='q147_A' value='A'>
+    Yes
+  </label>
+  <label for='q147_B' id='label-q147-B'>
+    <input type='radio' name='q147' id='q147_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 148: Which of the following is a complete list of operators that are used in component expressions?</h3>
+  <label for='q148_A' id='label-q148-A'>
+    <input type='radio' name='q148' id='q148_A' value='A'>
+    Sequencing and selection
+  </label>
+  <label for='q148_B' id='label-q148-B'>
+    <input type='radio' name='q148' id='q148_B' value='B'>
+    Iteration and selection
+  </label>
+  <label for='q148_C' id='label-q148-C'>
+    <input type='radio' name='q148' id='q148_C' value='C'>
+    Sequencing, iteration and selection
+  </label>
+  <label for='q148_D' id='label-q148-D'>
+    <input type='radio' name='q148' id='q148_D' value='D'>
+    Sequencing, iteration, selection and aggregation
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 149: Which of the following defines the nodes of a yo-yo graph?</h3>
+  <label for='q149_A' id='label-q149-A'>
+    <input type='radio' name='q149' id='q149_A' value='A'>
+    Nodes of a yo-yo graph are the classes of the inheritance hierarchy
+  </label>
+  <label for='q149_B' id='label-q149-B'>
+    <input type='radio' name='q149' id='q149_B' value='B'>
+    Nodes of a yo-yo graph are the methods of different classes, one node for each of the new, inherited and overridden methods
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 150: Which of the following best defines the edges of a yo-yo graph?</h3>
+  <label for='q150_A' id='label-q150-A'>
+    <input type='radio' name='q150' id='q150_A' value='A'>
+    Edges of a yo-yo graph are the method calls among methods of different classes
+  </label>
+  <label for='q150_B' id='label-q150-B'>
+    <input type='radio' name='q150' id='q150_B' value='B'>
+    Edges of a yo-yo graph are among classes at different levels of inheritance
+  </label>
+  <label for='q150_C' id='label-q150-C'>
+    <input type='radio' name='q150' id='q150_C' value='C'>
+    Edges of a yo-yo graph are from a caller method to a callee method
+  </label>
+  <label for='q150_D' id='label-q150-D'>
+    <input type='radio' name='q150' id='q150_D' value='D'>
+    Edges of a yo-yo graph are either the actual method calls or the calls that cannot be made due to overriding
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 151: State true or false: All the faults in object-oriented programs can be determined statically.</h3>
+  <label for='q151_A' id='label-q151-A'>
+    <input type='radio' name='q151' id='q151_A' value='A'>
+    True
+  </label>
+  <label for='q151_B' id='label-q151-B'>
+    <input type='radio' name='q151' id='q151_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 152: Which of the following best defines symbolic testing?</h3>
+  <label for='q152_A' id='label-q152-A'>
+    <input type='radio' name='q152' id='q152_A' value='A'>
+    A white box testing technique that executes all decision statements once
+  </label>
+  <label for='q152_B' id='label-q152-B'>
+    <input type='radio' name='q152' id='q152_B' value='B'>
+    A white box testing technique that executes all possible execution paths in the control flow graph
+  </label>
+  <label for='q152_C' id='label-q152-C'>
+    <input type='radio' name='q152' id='q152_C' value='C'>
+    A testing technique based on logical predicates being true
+  </label>
+  <label for='q152_D' id='label-q152-D'>
+    <input type='radio' name='q152' id='q152_D' value='D'>
+    A testing technique that works with branches and loops in the control flow graph of a program
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 153: Which of the following is a list of disadvantages of symbolic execution?</h3>
+  <label for='q153_A' id='label-q153-A'>
+    <input type='radio' name='q153' id='q153_A' value='A'>
+    Generating too many path constraints, even if they are all solvable
+  </label>
+  <label for='q153_B' id='label-q153-B'>
+    <input type='radio' name='q153' id='q153_B' value='B'>
+    Generating too many path constraints and many of them are unsolvable
+  </label>
+  <label for='q153_C' id='label-q153-C'>
+    <input type='radio' name='q153' id='q153_C' value='C'>
+    Generating unsolvable path constraints, code containing functions whose source code is not available
+  </label>
+  <label for='q153_D' id='label-q153-D'>
+    <input type='radio' name='q153' id='q153_D' value='D'>
+    Generating unsolvable path constraints, managing difficult program paths
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 154: State true or false: Symbolic execution can be terminated if the program under execution reaches an exit statement or encounters an error.</h3>
+  <label for='q154_A' id='label-q154-A'>
+    <input type='radio' name='q154' id='q154_A' value='A'>
+    True
+  </label>
+  <label for='q154_B' id='label-q154-B'>
+    <input type='radio' name='q154' id='q154_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 155: State true or false: Symbolic testing can always detect non-terminating loops.</h3>
+  <label for='q155_A' id='label-q155-A'>
+    <input type='radio' name='q155' id='q155_A' value='A'>
+    True
+  </label>
+  <label for='q155_B' id='label-q155-B'>
+    <input type='radio' name='q155' id='q155_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 156: State yes or no: Is concolic testing a white-box testing technique?</h3>
+  <label for='q156_A' id='label-q156-A'>
+    <input type='radio' name='q156' id='q156_A' value='A'>
+    Yes
+  </label>
+  <label for='q156_B' id='label-q156-B'>
+    <input type='radio' name='q156' id='q156_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 157: Which of the following is true about concolic testing?</h3>
+  <label for='q157_A' id='label-q157-A'>
+    <input type='radio' name='q157' id='q157_A' value='A'>
+    Concolic testing is used instead of symbolic testing when the latter fails
+  </label>
+  <label for='q157_B' id='label-q157-B'>
+    <input type='radio' name='q157' id='q157_B' value='B'>
+    Concolic testing keeps concrete state and symbolic state
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 158: What is the use of a SAT/SMT solver in symbolic testing?</h3>
+  <label for='q158_A' id='label-q158-A'>
+    <input type='radio' name='q158' id='q158_A' value='A'>
+    SAT/SMT solvers are used to collect path constraints in symbolic testing
+  </label>
+  <label for='q158_B' id='label-q158-B'>
+    <input type='radio' name='q158' id='q158_B' value='B'>
+    SAT/SMT solvers are used to solve path constraints and get values that can be used as test inputs
+  </label>
+  <label for='q158_C' id='label-q158-C'>
+    <input type='radio' name='q158' id='q158_C' value='C'>
+    Constraint solvers are not useful in symbolic testing as not all path constraints can be collected and solved
+  </label>
+  <label for='q158_D' id='label-q158-D'>
+    <input type='radio' name='q158' id='q158_D' value='D'>
+    Constraint solvers on predicates always return true or false values which helps to decide the execution paths
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 159: State true or false: Symbolic execution can be used to detect non-termination in programs.</h3>
+  <label for='q159_A' id='label-q159-A'>
+    <input type='radio' name='q159' id='q159_A' value='A'>
+    True
+  </label>
+  <label for='q159_B' id='label-q159-B'>
+    <input type='radio' name='q159' id='q159_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 160: Which of the following is a list of techniques used in the algorithm deployed by DART?</h3>
+  <label for='q160_A' id='label-q160-A'>
+    <input type='radio' name='q160' id='q160_A' value='A'>
+    Ramdom testing, symbolic testing and constraint solvers
+  </label>
+  <label for='q160_B' id='label-q160-B'>
+    <input type='radio' name='q160' id='q160_B' value='B'>
+    Symbolic testing and automated testing
+  </label>
+  <label for='q160_C' id='label-q160-C'>
+    <input type='radio' name='q160' id='q160_C' value='C'>
+    Directed search, random testing and constraint solvers
+  </label>
+  <label for='q160_D' id='label-q160-D'>
+    <input type='radio' name='q160' id='q160_D' value='D'>
+    Concrete testing and symbolic testing
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 161: Which of the following strategy is used for input search in concolic testing?</h3>
+  <label for='q161_A' id='label-q161-A'>
+    <input type='radio' name='q161' id='q161_A' value='A'>
+    Random search
+  </label>
+  <label for='q161_B' id='label-q161-B'>
+    <input type='radio' name='q161' id='q161_B' value='B'>
+    Systematic, random search interleaved with path-sensitive search
+  </label>
+</div>
+
+<div class='directions'>
+  <h4>DIRN 162-165</h4>
+  <p>Consider the code fragment:</p>
+<pre><code>
+0:  int x, y;
+1:  if (x &gt; y) {
+2:      x = x + y;
+3:      y = x - y;
+4:      x = x - y;
+5:      if (x - y &gt; 0)
+6:      --- error ---;
+    }
+</code></pre>
+</div>
+
+<div class='question-block'>
+  <h3>Question 162: What does the code fragment do?</h3>
+  <label for='q162_A' id='label-q162-A'>
+    <input type='radio' name='q162' id='q162_A' value='A'>
+    It checks if x is greater than y
+  </label>
+  <label for='q162_B' id='label-q162-B'>
+    <input type='radio' name='q162' id='q162_B' value='B'>
+    It checks if y is greater than x
+  </label>
+  <label for='q162_C' id='label-q162-C'>
+    <input type='radio' name='q162' id='q162_C' value='C'>
+    It swaps the values of x and y
+  </label>
+  <label for='q162_D' id='label-q162-D'>
+    <input type='radio' name='q162' id='q162_D' value='D'>
+    It swaps the values of x and y twice
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 163: How many decision points and execution paths are there in the code fragment?</h3>
+  <label for='q163_A' id='label-q163-A'>
+    <input type='radio' name='q163' id='q163_A' value='A'>
+    Two decision points and three execution paths
+  </label>
+  <label for='q163_B' id='label-q163-B'>
+    <input type='radio' name='q163' id='q163_B' value='B'>
+    Three decision points and four execution paths
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 164: What will be the path constraint at line 1 of the code fragment such that program exits without further execution?</h3>
+  <label for='q164_A' id='label-q164-A'>
+    <input type='radio' name='q164' id='q164_A' value='A'>
+    x &gt; y
+  </label>
+  <label for='q164_B' id='label-q164-B'>
+    <input type='radio' name='q164' id='q164_B' value='B'>
+    x &lt;= y
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 165: State yes or no: Is the error statement reachable in the given program fragment?</h3>
+  <label for='q165_A' id='label-q165-A'>
+    <input type='radio' name='q165' id='q165_A' value='A'>
+    Yes
+  </label>
+  <label for='q165_B' id='label-q165-B'>
+    <input type='radio' name='q165' id='q165_B' value='B'>
+    No
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 166: Testing for forward compatibility involves testing for which kind of features?</h3>
+  <label for='q166_A' id='label-q166-A'>
+    <input type='radio' name='q166' id='q166_A' value='A'>
+    Testing to accept inputs intended for modern versions of the operating system
+  </label>
+  <label for='q166_B' id='label-q166-B'>
+    <input type='radio' name='q166' id='q166_B' value='B'>
+    Testing to accept inputs intended for a former version of the software itself
+  </label>
+  <label for='q166_C' id='label-q166-C'>
+    <input type='radio' name='q166' id='q166_C' value='C'>
+    Testing to accept inputs for a latter version of the software itself
+  </label>
+  <label for='q166_D' id='label-q166-D'>
+    <input type='radio' name='q166' id='q166_D' value='D'>
+    Testing to accept inputs intended for a new version of third party products the software interacts with
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 167: Which of the following is a list of black box testing techniques?</h3>
+  <label for='q167_A' id='label-q167-A'>
+    <input type='radio' name='q167' id='q167_A' value='A'>
+    Logic-based testing, performance testing, stress testing
+  </label>
+  <label for='q167_B' id='label-q167-B'>
+    <input type='radio' name='q167' id='q167_B' value='B'>
+    Load testing, stress testing, testing for covering loops
+  </label>
+  <label for='q167_C' id='label-q167-C'>
+    <input type='radio' name='q167' id='q167_C' value='C'>
+    Testing based on partitioning inputs, load testing, stress testing
+  </label>
+  <label for='q167_D' id='label-q167-D'>
+    <input type='radio' name='q167' id='q167_D' value='D'>
+    Compatibility testing, functional testing, data flow testing
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 168: Which of the following best defines a polymorphic call set?</h3>
+  <label for='q168_A' id='label-q168-A'>
+    <input type='radio' name='q168' id='q168_A' value='A'>
+    All the polymorphic methods
+  </label>
+  <label for='q168_B' id='label-q168-B'>
+    <input type='radio' name='q168' id='q168_B' value='B'>
+    All the methods that the designer wants to be polymorphic
+  </label>
+  <label for='q168_C' id='label-q168-C'>
+    <input type='radio' name='q168' id='q168_C' value='C'>
+    Set of polymorphic methods that can get executed in a class
+  </label>
+  <label for='q168_D' id='label-q168-D'>
+    <input type='radio' name='q168' id='q168_D' value='D'>
+    Set of methods that can potentially execute as result of a method call through a particular instance context
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 169: Testing for mobile phone apps at middleware and device level is done using which of the following?</h3>
+  <label for='q169_A' id='label-q169-A'>
+    <input type='radio' name='q169' id='q169_A' value='A'>
+    Mobile phones themselves
+  </label>
+  <label for='q169_B' id='label-q169-B'>
+    <input type='radio' name='q169' id='q169_B' value='B'>
+    Application development environment
+  </label>
+  <label for='q169_C' id='label-q169-C'>
+    <input type='radio' name='q169' id='q169_C' value='C'>
+    Emulators that are custom-built
+  </label>
+  <label for='q169_D' id='label-q169-D'>
+    <input type='radio' name='q169' id='q169_D' value='D'>
+    Application within the phone
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 170: State true or false: Regression testing is a white-box testing technique as it tests for the changes done to the code.</h3>
+  <label for='q170_A' id='label-q170-A'>
+    <input type='radio' name='q170' id='q170_A' value='A'>
+    True
+  </label>
+  <label for='q170_B' id='label-q170-B'>
+    <input type='radio' name='q170' id='q170_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 171: Let P be a program and let P′ be a modified version of P. When do we say that a particular test case t is obsolete for P′?</h3>
+  <label for='q171_A' id='label-q171-A'>
+    <input type='radio' name='q171' id='q171_A' value='A'>
+    Test case t is obsolete for P′ if it does not produce an output on execution
+  </label>
+  <label for='q171_B' id='label-q171-B'>
+    <input type='radio' name='q171' id='q171_B' value='B'>
+    Test case t is obsolete for P′ if it has an input that is not valid for P′
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 172: State true or false: Testing for non-functional or quality requirements can be done at all the phases of software development.</h3>
+  <label for='q172_A' id='label-q172-A'>
+    <input type='radio' name='q172' id='q172_A' value='A'>
+    True
+  </label>
+  <label for='q172_B' id='label-q172-B'>
+    <input type='radio' name='q172' id='q172_B' value='B'>
+    False
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 173: If a software application version X released in 2007 can be used on version Y of the same application released in 2010, what does it indicate regarding its compatibility?</h3>
+  <label for='q173_A' id='label-q173-A'>
+    <input type='radio' name='q173' id='q173_A' value='A'>
+    The application X is backward compatible
+  </label>
+  <label for='q173_B' id='label-q173-B'>
+    <input type='radio' name='q173' id='q173_B' value='B'>
+    The application X is forward compatible
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 174: If a particular file available in a web link is set to have “Readonly” access to all users, then it is an example of which kind of quality requirement?</h3>
+  <label for='q174_A' id='label-q174-A'>
+    <input type='radio' name='q174' id='q174_A' value='A'>
+    It is an example of a confidentiality requirement
+  </label>
+  <label for='q174_B' id='label-q174-B'>
+    <input type='radio' name='q174' id='q174_B' value='B'>
+    It is an example of a reliability requirement
+  </label>
+  <label for='q174_C' id='label-q174-C'>
+    <input type='radio' name='q174' id='q174_C' value='C'>
+    It is an example of a security authorization requirement
+  </label>
+  <label for='q174_D' id='label-q174-D'>
+    <input type='radio' name='q174' id='q174_D' value='D'>
+    It is an example of a security authentication requirement
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 175: Installation instructions are made available as part of the software package. What are these instructions a part of?</h3>
+  <label for='q175_A' id='label-q175-A'>
+    <input type='radio' name='q175' id='q175_A' value='A'>
+    They are a part of the software documentation
+  </label>
+  <label for='q175_B' id='label-q175-B'>
+    <input type='radio' name='q175' id='q175_B' value='B'>
+    They are a part of the software operations procedure
+  </label>
+  <label for='q175_C' id='label-q175-C'>
+    <input type='radio' name='q175' id='q175_C' value='C'>
+    They are a part of the regulatory requirements for the software
+  </label>
+  <label for='q175_D' id='label-q175-D'>
+    <input type='radio' name='q175' id='q175_D' value='D'>
+    They are a part of the availability requirements of the software
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 176: Which of the following terms represents the testing that is done to find the upper limit capacity of the inputs that a system can handle?</h3>
+  <label for='q176_A' id='label-q176-A'>
+    <input type='radio' name='q176' id='q176_A' value='A'>
+    Performance testing
+  </label>
+  <label for='q176_B' id='label-q176-B'>
+    <input type='radio' name='q176' id='q176_B' value='B'>
+    Load testing
+  </label>
+  <label for='q176_C' id='label-q176-C'>
+    <input type='radio' name='q176' id='q176_C' value='C'>
+    Spike testing
+  </label>
+  <label for='q176_D' id='label-q176-D'>
+    <input type='radio' name='q176' id='q176_D' value='D'>
+    Stress testing
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 177: Which of the following is a list of key challenges in testing of mobile applications?</h3>
+  <label for='q177_A' id='label-q177-A'>
+    <input type='radio' name='q177' id='q177_A' value='A'>
+    Key challenge is related to mobile applications being different from desktop applications
+  </label>
+  <label for='q177_B' id='label-q177-B'>
+    <input type='radio' name='q177' id='q177_B' value='B'>
+    Mobile applications have to be tested within a mobile phone only, this is the key challenge
+  </label>
+  <label for='q177_C' id='label-q177-C'>
+    <input type='radio' name='q177' id='q177_C' value='C'>
+    Testing across platforms is the only key challenge
+  </label>
+  <label for='q177_D' id='label-q177-D'>
+    <input type='radio' name='q177' id='q177_D' value='D'>
+    Device fragmentation, different mobile networks, compatibility across platforms
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 178: When performance testing is considered for mobile applications, which of the following aspects are tested for?</h3>
+  <label for='q178_A' id='label-q178-A'>
+    <input type='radio' name='q178' id='q178_A' value='A'>
+    Screen size, operating systems and browsers
+  </label>
+  <label for='q178_B' id='label-q178-B'>
+    <input type='radio' name='q178' id='q178_B' value='B'>
+    Network coverage, memory and battery
+  </label>
+  <label for='q178_C' id='label-q178-C'>
+    <input type='radio' name='q178' id='q178_C' value='C'>
+    Speed with uniform user experience
+  </label>
+  <label for='q178_D' id='label-q178-D'>
+    <input type='radio' name='q178' id='q178_D' value='D'>
+    Load and stress in terms of the number of users
+  </label>
+</div>
+
+<div class='question-block'>
+  <h3>Question 179: Which of the following is a list of interrupts that mobile applications are tested for?</h3>
+  <label for='q179_A' id='label-q179-A'>
+    <input type='radio' name='q179' id='q179_A' value='A'>
+    Network coverage, memory and battery
+  </label>
+  <label for='q179_B' id='label-q179-B'>
+    <input type='radio' name='q179' id='q179_B' value='B'>
+    Network outage, incoming/outgoing calls and messages
+  </label>
+</div>
+
+<button type='submit' class='submit-btn'>Submit & Grade</button>
+  </form>
+<script>
+const correctAnswers = {
+  "1": "B",
+  "2": "A",
+  "3": "C",
+  "4": "A",
+  "5": "B",
+  "6": "C",
+  "7": "B",
+  "8": "D",
+  "9": "A",
+  "10": "A",
+  "11": "B",
+  "12": "C",
+  "13": "D",
+  "14": "A",
+  "15": "C",
+  "16": "B",
+  "17": "B",
+  "18": "C",
+  "19": "D",
+  "20": "C",
+  "21": "B",
+  "22": "D",
+  "23": "B",
+  "24": "A",
+  "25": "A",
+  "26": "B",
+  "27": "D",
+  "28": "B",
+  "29": "B",
+  "30": "C",
+  "31": "B",
+  "32": "A",
+  "33": "B",
+  "34": "A",
+  "35": "A",
+  "36": "A",
+  "37": "B",
+  "38": "D",
+  "39": "A",
+  "40": "A",
+  "41": "A",
+  "42": "B",
+  "43": "B",
+  "44": "A",
+  "45": "B",
+  "46": "A",
+  "47": "B",
+  "48": "C",
+  "49": "B",
+  "50": "A",
+  "51": "A",
+  "52": "A",
+  "53": "B",
+  "54": "A",
+  "55": "B",
+  "56": "A",
+  "57": "A",
+  "58": "A",
+  "59": "B",
+  "60": "A",
+  "61": "B",
+  "62": "D",
+  "63": "C",
+  "64": "B",
+  "65": "B",
+  "66": "C",
+  "67": "B",
+  "68": "A",
+  "69": "B",
+  "70": "A",
+  "71": "B",
+  "72": "B",
+  "73": "C",
+  "74": "C",
+  "75": "C",
+  "76": "A",
+  "77": "A",
+  "78": "B",
+  "79": "A",
+  "80": "B",
+  "81": "C",
+  "82": "A",
+  "83": "A",
+  "84": "B",
+  "85": "B",
+  "86": "B",
+  "87": "A",
+  "88": "B",
+  "89": "B",
+  "90": "A",
+  "91": "A",
+  "92": "C",
+  "93": "A",
+  "94": "A",
+  "95": "A",
+  "96": "D",
+  "97": "B",
+  "98": "A",
+  "99": "A",
+  "100": "A",
+  "101": "A",
+  "102": "B",
+  "103": "C",
+  "104": "B",
+  "105": "B",
+  "106": "B",
+  "107": "B",
+  "108": "A",
+  "109": "A",
+  "110": "D",
+  "111": "B",
+  "112": "B",
+  "113": "B",
+  "114": "D",
+  "115": "B",
+  "116": "A",
+  "117": "A",
+  "118": "A",
+  "119": "C",
+  "120": "B",
+  "121": "A",
+  "122": "B",
+  "123": "A",
+  "124": "C",
+  "125": "A",
+  "126": "B",
+  "127": "A",
+  "128": "A",
+  "129": "D",
+  "130": "B",
+  "131": "B",
+  "132": "A",
+  "133": "C",
+  "134": "B",
+  "135": "A",
+  "136": "A",
+  "137": "C",
+  "138": "C",
+  "139": "D",
+  "140": "B",
+  "141": "C",
+  "142": "A",
+  "143": "A",
+  "144": "B",
+  "145": "C",
+  "146": "A",
+  "147": "B",
+  "148": "D",
+  "149": "B",
+  "150": "D",
+  "151": "B",
+  "152": "B",
+  "153": "C",
+  "154": "A",
+  "155": "B",
+  "156": "A",
+  "157": "B",
+  "158": "B",
+  "159": "B",
+  "160": "C",
+  "161": "B",
+  "162": "C",
+  "163": "A",
+  "164": "B",
+  "165": "B",
+  "166": "C",
+  "167": "C",
+  "168": "D",
+  "169": "C",
+  "170": "B",
+  "171": "B",
+  "172": "B",
+  "173": "B",
+  "174": "C",
+  "175": "A",
+  "176": "D",
+  "177": "D",
+  "178": "B",
+  "179": "B"
+};
+</script>
+
+<script>
+function handleSubmit(event) {
+  event.preventDefault(); // Stop the form from reloading the page
+  
+  let score = 0;
+  const totalQuestions = Object.keys(correctAnswers).length;
+
+  // Clear all previous formatting
+  document.querySelectorAll('label').forEach(label => {
+    label.classList.remove('correct', 'incorrect');
+  });
+
+  // Loop through each question in the answer key
+  for (const qNum in correctAnswers) {
+    const correctLetter = correctAnswers[qNum];
+    const correctLabel = document.getElementById(`label-q${qNum}-${correctLetter}`);
+    
+    // Find what the user selected
+    const userAnswerInput = document.querySelector(`input[name='q${qNum}']:checked`);
+    
+    if (userAnswerInput) {
+      const userLetter = userAnswerInput.value;
+      const userLabel = document.getElementById(`label-q${qNum}-${userLetter}`);
+      
+      if (userLetter === correctLetter) {
+        // Correct!
+        score++;
+        userLabel.classList.add('correct');
+      } else {
+        // Incorrect!
+        userLabel.classList.add('incorrect');
+        if (correctLabel) {
+          // Also show the correct answer
+          correctLabel.classList.add('correct');
+        }
+      }
+    } else {
+      // No answer given
+      if (correctLabel) {
+        // Show the correct answer
+        correctLabel.classList.add('correct');
+      }
+    }
+  }
+
+  // Display the final score
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = `Your Score: ${score} / ${totalQuestions}`;
+  resultsDiv.style.display = 'block';
+  
+  // Scroll to the top to see the score
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
