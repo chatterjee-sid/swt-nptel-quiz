@@ -29,7 +29,7 @@ Repository for the questions in assignments of **Software Testing** Oct/Nov 2025
 * The exam is of 180 minutes, and you will be allowed to leave the exam hall after the first 90 minutes only.
 * But don't worry, sometimes the questions are so easy, that you can finish your exam in just 1 hour.
 * There are a total of 50 questions in the test, divided in 3 sections of 20-20-10. All these question are mostly MCQ, but some may be MSQ (more than one correct) type as well.
-* Every question is of 2 marks, so you will get a score out of 100 in Proctored exam. But this will be later converted to be out of 75 marks. 25 marks are for the assignments and **<span style='color: red;'>DON'T YOU DARE SKIP THE ASSIGNMENTS</span>**.
+* Every question is of 2 marks, so you will get a score out of 100 in Proctored exam. But this will be later converted to be out of 75 marks. 25 marks are for the assignments and **<span style='color: red;'>DON'T YOU DARE SKIP THE ASSIGNMENTS</span>** (you are allowed to skip only if you have 8 assignments with full score, yet you should attempt them for preparation).
 * For the 25 marks of assignments, your best 8 assignments out of 12 will be considered. Try to score as many full scores in assignments as possible.
 * Bonus: there's no negative marking. So attempt every question.
 
