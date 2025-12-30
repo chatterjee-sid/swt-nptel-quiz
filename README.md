@@ -20,7 +20,7 @@ Repository for the questions in assignments of **Software Testing** Oct/Nov 2025
 
 ## As for the exam... some tips
 * **Keep some time with yourself.** While the exam is usually quite easy, it's easier if you study with at least a week in hand.
-* **Read all PPTs thoroughly.** While PPTs are not available always, you can use the transcripts instead. PPT screenshots are available there which you can use. You can find the transcripts [here](https://drive.google.com/drive/folders/1WnJdBnTbdoeJjsMx1cz40a4Z8Y0GTNhj).
+* **Read all PPTs thoroughly.** While PPTs are not available always, you can use the transcripts instead. PPT screenshots are available there which you can use. You can find the transcripts [here](https://drive.google.com/drive/folders/1WnJdBnTbdoeJjsMx1cz40a4Z8Y0GTNhj). Although, not used at the last minute, but the [videos and books](https://nptel.ac.in/courses/106101163) can be downloaded offline here... in case you wish to use them on the go
 * **Practice Assignment Questions.** The questions maybe different for you in your assignments. Try them, and try the questions here as well. You should be able to get an idea on how the questions can be asked.
   * You can create a markdown file of your own assignment questions, and convert them into a quiz using [**create_quiz.py**](https://github.com/chatterjee-sid/swt-nptel-quiz/blob/main/create_quiz.py).
 * **Go through your notes.** But if you have not made any, you can also take AI help as well. I tried summarising every week's content using Gemini and it helped me a lot during preparation.
